@@ -696,11 +696,10 @@
 </style>
 
 <div class="ImportShiftDiv" style="font-family:'Segoe UI Semilight',Helvetica,Arial,sans-serif;background:#F3F2F1;height: 100%;">
-    <div class="ui small icon input pull-right" id="DivShiftSearch" style="width:50%; cursor:pointer; position:fixed;">
-        <input type="text" class="InputSearchShiftDetails" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeyup="OnKeyUpSearchShiftDetails(this)" onblur="OnblurSearchShiftBlur(this)" placeholder="Find...">
-        <i class="search icon "></i>
-    </div>
-    <div class="navbar" id="MainNavBar">
+    <div class="navbar" id="MainNavBar" style="position: fixed;
+    top: 0;
+    right: 0;
+    left: 0; background-color:#E8E7E6; z-index: 1;" >
         <div class="pull-left" id="MainLeftDiv">
             <div class="btn-group pull-left" style="@(ViewBag.DepartmentListCount == 0 ? "display:none":"");">
                 <button class="btn CustomImportButton" type="button" data-toggle="dropdown" title="Filter groups">
@@ -722,7 +721,7 @@
                 </ul>
             </div>
             <div class="pull-left divDatePicker">
-                <input type="text" id="datetimepicker" class="CustomImportButton txtDatetimePicker btn" readonly="readonly" title="Select a date" style="padding: 6px 0px;background:#F3F2F1;">
+                <input type="text" id="datetimepicker" class="CustomImportButton txtDatetimePicker btn" readonly="readonly" title="Select a date" style="padding: 6px 0px;">
                 <span class="customGlyphicon chevronIcon datetimePickerIcon" style="vertical-align: bottom; top: 4px; cursor:pointer" onclick="onclickOpenCalender()"></span>
             </div>
         </div>
@@ -747,12 +746,16 @@
             </ul>
 
         </div>
-        <div class=" pull-right" id="MainRightDiv">
+        <div class="ui small icon input" id="DivShiftSearch" style="width:50%; cursor:pointer; position:fixed; border: 1px solid #dccdcd;">
+            <input type="text" class="InputSearchShiftDetails" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeyup="OnKeyUpSearchShiftDetails(this)" onblur="OnblurSearchShiftBlur(this)" placeholder="Find...">
+            <i class="search icon "></i>
+        </div>
+        <div class="pull-right" id="MainRightDiv">
             @*<div class=" pull-right" style="margin-right: 5px;margin-top: 6px; cursor:pointer">
-                    <span class="customGlyphicon searchIcon" id="ShiftSearchIcon" onclick="ShowDivShiftSearch()" />
-                </div>*@
+                <span class="customGlyphicon searchIcon" id="ShiftSearchIcon" onclick="ShowDivShiftSearch()" />
+            </div>*@
 
-            <div style="" class="ShowSwitchIfToday">
+            <div class="ShowSwitchIfToday">
                 <label class="switch">
                     <input type="checkbox" class="chkInactiveStatus" onclick="OnclickShowHideInactiveShiftDetails(this)">
                     <span class="slider round"></span>
