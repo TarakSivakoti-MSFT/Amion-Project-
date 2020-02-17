@@ -1,0 +1,165 @@
+﻿<style>
+
+    .citeCustom {
+        color: rgba(37,36,36,0.75);
+        /* font-family: "Segoe UI"; */
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: normal !important;
+    }
+
+    .ulcustom {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .btnEditColumn {
+        background-color: #f4f4f4;
+        border: none;
+        color: black;
+        padding: 5px 11px 5px 0px;
+        font-size: 14px;
+        cursor: pointer;
+        float: left;
+        margin-right: 8px;
+        font-weight: 500 !important;
+        cursor: crosshair;
+        cursor: move;
+        text-decoration: none !important;
+        margin-bottom: 4px !important;
+    }
+
+        .btnEditColumn:hover {
+            color: black !important;
+        }
+
+
+        .btnEditColumn i {
+            line-height: 16px;
+            font-weight: 500;
+            color: #656464;
+            bottom: 0px;
+            vertical-align: bottom;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 15px;
+            font-style: normal;
+            top: 0px;
+        }
+
+    .customGlyphicon {
+        position: relative;
+        display: inline-block;
+        font-family: "TeamsAssets-Light" !important;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: inherit;
+        font-size: 14px;
+    }
+
+    .HightlightedEditColumn > .copySelectionIcon::before {
+        content: "\E14d";
+    }
+
+    .HightlightedEditColumn > .copySelectionIcon {
+        font-size: 21px !important;
+        top: 0px;
+        font-weight: 100 !important;
+        margin-left: 0px !important;
+    }
+
+    .crossIcon::before {
+        content: "\E413";
+    }
+
+    .addIcon::before {
+        content: "\E415";
+    }
+</style>
+
+<div class="body-content body-top">
+    <div class="my-container">
+        <h3 class="clsAmionFontFamily">Edit columns</h3>
+        <div class="my-container">
+            <div class="clsAmionFontFamily">Specify which information shows for your team.</div>
+        </div>
+    </div>
+    <div class="my-container">
+        <ul id="ulEditColumnNames" class="ulcustom">
+            @{
+                Dictionary<string, string> GetColumnMapConfig = AMiON.Helper.ConfigurationManagerHelper.AppSetting.ColumnNamesConfig.Split(',')
+                .Select(x => new { Columnkey = x.Split(':')[0], ColumnValue = x.Split(':')[1] }).ToDictionary(x => x.Columnkey, x => x.ColumnValue);
+
+                string[] defaultOrderedColumn = GetColumnMapConfig.Select(x => x.Value).ToArray();
+                foreach (string columnName in defaultOrderedColumn)
+                {
+                    <li ColumnName="@columnName">
+                        <a class="btnEditColumn clsAmionFontFamily">
+                            <i class="customGlyphicon copySelectionIcon"></i>
+                            @columnName
+                            <i title="Remove column" class="customGlyphicon crossIcon" onclick="RemoveEditColumn(this,'@columnName')"></i>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="my-container" id="divAddColumnNames" style="display:none">
+        <label style="float: left;padding: 5.5px 10px 5.5px 0px;font-size: 18px;color: rgba(37,36,36,0.75); font-weight:normal" class="customGlyphicon addIcon"></label>
+        <ul id="ulRemovedColumnNames" class="ulcustom"></ul>
+    </div>
+    <div class="my-container">
+        <div class="field-validation-error alignLeft" id="editColumnErrorContainer">
+        </div>
+    </div>
+    <div style="padding-top:8px">
+        <label><cite class="citeCustom">Drag column names to change order.</cite></label>
+    </div>
+
+</div>
+<div>
+    <button id="submit" onclick="Submit()">Save</button>
+</div>
+
+<script>
+    function Submit() {
+        var target = window.location.origin + '/Shifts/Index';
+        window.location.href = target + '?userId=' + $('#amionLoginData').val();
+    }
+    function RemoveEditColumn($this, colName) {
+        $("#ulRemovedColumnNames").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn" style="padding-left:9px">' + colName + '<i title="add column" class="customGlyphicon addIcon" onclick="AddEditColumn(this,\'' + colName + '\')"></i></a></li>');
+        $($this).closest("li").remove();
+        if ($("#ulRemovedColumnNames li").length === 0) {
+            $("#divAddColumnNames").hide();
+        }
+        else
+            $("#divAddColumnNames").show();
+
+        if ($("#ulEditColumnNames li").length === 0) {
+            $("#editColumnErrorContainer").html("Add at least one column to proceed.");
+            microsoftTeams.settings.setValidityState(false);
+        }
+        else {
+            $("#editColumnErrorContainer").html('');
+            microsoftTeams.settings.setValidityState(true);
+        }
+
+    }
+
+    function AddEditColumn($this, colName) {
+
+        $("#ulEditColumnNames").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn"><i class="customGlyphicon copySelectionIcon"/>' + colName + '<i title="Remove column" class="customGlyphicon crossIcon" onclick="RemoveEditColumn(this,\'' + colName + '\')"></i></a></li>');
+        $($this).closest("li").remove();
+        if ($("#ulEditColumnNames li").length > 0) {
+            $("#editColumnErrorContainer").html('');
+            microsoftTeams.settings.setValidityState(true);
+        }
+        if ($("#ulRemovedColumnNames li").length === 0)
+            $("#divAddColumnNames").hide();
+    }
+</script>

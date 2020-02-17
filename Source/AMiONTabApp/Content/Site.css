@@ -1,0 +1,498 @@
+﻿
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.clsAmionFontFamily {
+    font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif !important;
+}
+body ::-webkit-scrollbar {
+    width: 10px !important;
+    height: 14px !important;
+    -webkit-appearance: none;
+}
+
+body ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 5px;
+    height: 50px !important;
+    background: rgba(0,0,0,.25);
+    /* -webkit-transition: color .2s ease; */
+    transition: color .2s ease;
+}
+
+body ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,.1);
+    border-radius: 0;
+    background-clip: content-box;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 3%;
+    padding-right: 3%;
+    font-family: 'Segoe UI Semilight',Helvetica,Arial,sans-serif !important;
+}
+.body-top{
+    padding-top:2%;
+}
+
+#wrapper {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+@keyframes tablesorter-anim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+table.tablesorter {
+}
+
+    table.tablesorter tbody tr {
+        animation-name: tablesorter-anim;
+        animation-duration: 0.15s;
+    }
+
+th.tablesorter-header {
+    cursor: pointer;
+}
+
+th.tablesorter-sorting {
+    cursor: wait;
+}
+
+th.tablesorter-unsorted:before {
+    content: "\2195";
+}
+
+th.tablesorter-desc:before {
+    content: "\2191";
+}
+
+th.tablesorter-asc:before {
+    content: "\2193";
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 100% !important;
+    }
+}
+
+table > thead > tr > th {
+    outline: none !important;
+}
+
+.ulcustom {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.EditColumnIcon {
+    float: right;
+    margin: 10px;
+    margin-top: 6px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.btnEditColumn {
+    background-color: #f3f2f0;
+    border: none;
+    color: black;
+    padding: 5px 11px 5px 9px;
+    font-size: 14px;
+    cursor: pointer;
+    float: left;
+    margin-right: 8px;
+    /* font-weight: bold; */
+    /* cursor: crosshair; */
+    cursor: move;
+    text-decoration: none !important;
+    margin-bottom: 4px !important;
+}
+
+
+.one-edge-shadow {
+    -webkit-box-shadow: 0 8px 6px -6px gray;
+    -moz-box-shadow: 0 8px 6px -6px gray;
+    box-shadow: 0 8px 6px -6px gray;
+}
+
+/*body {
+    background: #f3f2f0;
+}*/
+
+.btnEditColumnIcon {
+    font-size: x-small;
+    font-weight: 400;
+    float: right;
+    left: 9px;
+    color: lightslategrey;
+    cursor: pointer;
+    top: 5px;
+}
+
+.has-search .form-control-feedback {
+    right: 0;
+    left: initial;
+    color: #ccc;
+}
+
+.has-search .form-control {
+    padding-right: 30px;
+    padding-left: 3px;
+}
+
+.AMiONShiftTitle {
+    color: #7070a2;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.4em;
+    float: left;
+    width: 163px
+}
+
+.dropdownShiftTeam {
+    color: #7070a2;
+    font-weight: bold;
+    cursor: pointer;
+    background: inherit;
+    border: none;
+    -webkit-box-shadow: none;
+    float: left;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.dropdownShiftTeamIcon {
+    color: #7070a2;
+    margin-top: 8px;
+    float: left;
+    font-weight: inherit
+}
+
+.txtDataPicker {
+    width: 139px;
+    color: #7070a2;
+    font-weight: bold;
+    cursor: pointer;
+    background: inherit;
+    font-size: 1.12em;
+    border: none;
+    -webkit-box-shadow: none;
+    float: left;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.txtDataPickerIcon {
+    color: #7070a2 !important;
+    z-index: 1;
+    margin-left: -28px;
+    margin-top: 9px;
+    float: left;
+}
+
+.navbar {
+    min-height: 36px !important;
+    margin-bottom: 0px !important
+}
+
+.switchCustom {
+    float: right;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #7070a2 !important;
+    border-color: #7070a2 !important;
+}
+
+.switchLabel {
+    color: #7070a2;
+    float: right;
+    /* background: #7070a2; */
+    margin-top: 7px;
+}
+
+.txtSearch {
+    width: 230px;
+    float: right;
+    height: 32px;
+}
+
+.btnImport {
+    float: right;
+    margin-left: 8px;
+    height: 31px;
+}
+
+/*Switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 19px;
+        width: 18px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+/*switch*/
+/*.shiftActive > td {
+    font-weight: bold;
+}*/
+
+.rowCustom {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+}
+
+.citeCustom {
+    font-size: smaller;
+    font-weight: 200;
+}
+
+.wrapper {
+    margin-top: 25%;
+}
+
+.my-container {
+    margin: 0em 0em 0.5em 0em;
+    padding: 0em 0em 0.5em 0em;
+    /*background: #e0e1e2 none;*/
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.input-validation-error {
+    border: 2px solid red;
+}
+.checkBoxContainer{
+    width:100%;
+}
+.alignLeft{
+    float:left;
+}
+.alignRight{
+    float:right;
+    font-size:1.3em;
+    padding-top:0.5em;
+}
+
+#idDepartment{
+    margin:0px;
+    padding:0px;
+}
+
+.ui.toggle.checkbox #idDepartment:checked ~ .box:before, .ui.toggle.checkbox #idDepartment:checked ~ label:before {
+    background-color: #2185d0 !important
+}
+
+.inputBackground {
+    background: #e0e1e2;
+}
+
+.backgroundWhite {
+    background: #fff;
+}
+.ui.multiple.dropdown > .label {
+    background: none;
+}
+
+.myInputBackground {
+    background: 0 0 #e0e1e2 !important;
+}
+.ui.dropdown .remove.icon {
+    font-size: 0.857143em;
+    float: left;
+    margin: 0;
+    padding: 0;
+    left: -0.2em;
+    top: 0.5em;
+    position: relative;
+    opacity: 0.5;
+    cursor: pointer;
+    display: block;
+}
+
+.ui.dropdown input[value=''] ~ .remove.icon, .ui.dropdown input:not([value]) ~ .remove.icon {
+    display: none;
+}
+#multipleSelDepartments > .item {
+    padding: 0.5rem !important
+}
+
+.row{
+    margin:0;
+    padding:0;
+}
+.completeWidth {
+    width: 100%;
+}
+
+
+.clsInputBckgrnd {
+    background-color: #F3F2F1 !important;
+}
+#divAmionImport .lblAmion {
+    color: rgba(37,36,36,0.75);
+    font-size: 12px;
+    line-height: 16px;
+}
+
+#divAmionImport #lblChkDepartments {
+    color: #252423;
+}
+#divAmionImport #divUpload {
+    cursor: pointer;
+    background: 0 0 #fff !important;
+    width: 15%;
+}
+
+#idMSLoginContainer {
+    color: #5e5e5e;
+    border: 1px #8c8c8c;
+    font-weight: 600;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 41px;
+    text-align: center;
+    padding-top: 8px;
+    border: 1px solid #8c8c8c;
+    min-width: 17em;
+    max-width: 17em;
+}
+
+#btnAmionLogin {
+    margin-top: 35px;
+    min-width: 10%;
+    border-right: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Segoe UI Semilight',Helvetica,Arial,sans-serif;
+}
+
+#amionLoginData {
+    border: none;
+    border-bottom: solid;
+    border-bottom-color: #F3F2F1;
+    border-radius: 3px !important;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    height: 54px;
+}
+
+.txtInputBottonBorder {
+    border-bottom-color: #7070a2 !important;
+}
+.circleCheckIcon {
+    font-family: "TeamsAssets-Light";
+    font-style: normal;
+    cursor: default;
+    position: absolute;
+    line-height: 1;
+    top: 0;
+    right: 0;
+    margin: 0;
+    font-size:16px !important;
+    opacity: .5;
+    border-radius: 0 .28571429rem .28571429rem 0;
+    padding:19px;
+    font-size: 1.4em;
+    color: forestgreen;
+}
+
+.circleCheckIcon::before {
+    content: "\E44F";
+}
+

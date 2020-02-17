@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="SDL Recommended Rules" Description="These rules focus on the most critical security problems in your code. You should include this rule set in any custom rule set you create for your projects." ToolsVersion="14.0">
+  <Rules AnalyzerId="Desktop.CSharp.Analyzers" RuleNamespace="Desktop.CSharp.Analyzers">
+    <Rule Id="CA1001" Action="Warning" />
+    <Rule Id="CA1009" Action="Warning" />
+    <Rule Id="CA1016" Action="Warning" />
+    <Rule Id="CA1033" Action="Warning" />
+    <Rule Id="CA1049" Action="Warning" />
+    <Rule Id="CA1060" Action="Warning" />
+    <Rule Id="CA1061" Action="Warning" />
+    <Rule Id="CA1063" Action="Warning" />
+    <Rule Id="CA1065" Action="Warning" />
+    <Rule Id="CA1301" Action="Warning" />
+    <Rule Id="CA1400" Action="Warning" />
+    <Rule Id="CA1401" Action="Warning" />
+    <Rule Id="CA1403" Action="Warning" />
+    <Rule Id="CA1404" Action="Warning" />
+    <Rule Id="CA1405" Action="Warning" />
+    <Rule Id="CA1410" Action="Warning" />
+    <Rule Id="CA1415" Action="Warning" />
+    <Rule Id="CA1821" Action="Warning" />
+    <Rule Id="CA1900" Action="Warning" />
+    <Rule Id="CA1901" Action="Warning" />
+    <Rule Id="CA2002" Action="Warning" />
+    <Rule Id="CA2100" Action="Warning" />
+    <Rule Id="CA2101" Action="Warning" />
+    <Rule Id="CA2108" Action="Warning" />
+    <Rule Id="CA2111" Action="Warning" />
+    <Rule Id="CA2112" Action="Warning" />
+    <Rule Id="CA2114" Action="Warning" />
+    <Rule Id="CA2116" Action="Warning" />
+    <Rule Id="CA2117" Action="Warning" />
+    <Rule Id="CA2122" Action="Warning" />
+    <Rule Id="CA2123" Action="Warning" />
+    <Rule Id="CA2124" Action="Warning" />
+    <Rule Id="CA2126" Action="Warning" />
+    <Rule Id="CA2131" Action="Warning" />
+    <Rule Id="CA2132" Action="Warning" />
+    <Rule Id="CA2133" Action="Warning" />
+    <Rule Id="CA2134" Action="Warning" />
+    <Rule Id="CA2137" Action="Warning" />
+    <Rule Id="CA2138" Action="Warning" />
+    <Rule Id="CA2140" Action="Warning" />
+    <Rule Id="CA2141" Action="Warning" />
+    <Rule Id="CA2146" Action="Warning" />
+    <Rule Id="CA2147" Action="Warning" />
+    <Rule Id="CA2149" Action="Warning" />
+    <Rule Id="CA2153" Action="Warning" />
+    <Rule Id="CA2200" Action="Warning" />
+    <Rule Id="CA2202" Action="Warning" />
+    <Rule Id="CA2207" Action="Warning" />
+    <Rule Id="CA2212" Action="Warning" />
+    <Rule Id="CA2213" Action="Warning" />
+    <Rule Id="CA2214" Action="Warning" />
+    <Rule Id="CA2216" Action="Warning" />
+    <Rule Id="CA2220" Action="Warning" />
+    <Rule Id="CA2229" Action="Warning" />
+    <Rule Id="CA2231" Action="Warning" />
+    <Rule Id="CA2232" Action="Warning" />
+    <Rule Id="CA2235" Action="Warning" />
+    <Rule Id="CA2236" Action="Warning" />
+    <Rule Id="CA2237" Action="Warning" />
+    <Rule Id="CA2238" Action="Warning" />
+    <Rule Id="CA2240" Action="Warning" />
+    <Rule Id="CA2241" Action="Warning" />
+    <Rule Id="CA2242" Action="Warning" />
+    <Rule Id="CA3075" Action="Warning" />
+    <Rule Id="CA3076" Action="Warning" />
+    <Rule Id="CA3077" Action="Warning" />
+    <Rule Id="CA5350" Action="Warning" />
+    <Rule Id="CA5351" Action="Warning" />
+  </Rules>
+  <Rules AnalyzerId="Internal.CSharp.Analyzers" RuleNamespace="Internal.CSharp.Analyzers">
+    <Rule Id="IA5350" Action="Warning" />
+    <Rule Id="IA5351" Action="Warning" />
+    <Rule Id="IA5352" Action="Warning" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+    <Rule Id="AD0001" Action="None" />
+    <Rule Id="CS0028" Action="None" />
+    <Rule Id="CS0078" Action="None" />
+    <Rule Id="CS0105" Action="None" />
+    <Rule Id="CS0108" Action="None" />
+    <Rule Id="CS0109" Action="None" />
+    <Rule Id="CS0114" Action="None" />
+    <Rule Id="CS0162" Action="None" />
+    <Rule Id="CS0164" Action="None" />
+    <Rule Id="CS0168" Action="None" />
+    <Rule Id="CS0183" Action="None" />
+    <Rule Id="CS0184" Action="None" />
+    <Rule Id="CS0197" Action="None" />
+    <Rule Id="CS0219" Action="None" />
+    <Rule Id="CS0251" Action="None" />
+    <Rule Id="CS0252" Action="None" />
+    <Rule Id="CS0253" Action="None" />
+    <Rule Id="CS0278" Action="None" />
+    <Rule Id="CS0279" Action="None" />
+    <Rule Id="CS0280" Action="None" />
+    <Rule Id="CS0282" Action="None" />
+    <Rule Id="CS0402" Action="None" />
+    <Rule Id="CS0419" Action="None" />
+    <Rule Id="CS0420" Action="None" />
+    <Rule Id="CS0435" Action="None" />
+    <Rule Id="CS0436" Action="None" />
+    <Rule Id="CS0437" Action="None" />
+    <Rule Id="CS0440" Action="None" />
+    <Rule Id="CS0458" Action="None" />
+    <Rule Id="CS0464" Action="None" />
+    <Rule Id="CS0465" Action="None" />
+    <Rule Id="CS0469" Action="None" />
+    <Rule Id="CS0472" Action="None" />
+    <Rule Id="CS0473" Action="None" />
+    <Rule Id="CS0612" Action="None" />
+    <Rule Id="CS0618" Action="None" />
+    <Rule Id="CS0626" Action="None" />
+    <Rule Id="CS0628" Action="None" />
+    <Rule Id="CS0642" Action="None" />
+    <Rule Id="CS0652" Action="None" />
+    <Rule Id="CS0657" Action="None" />
+    <Rule Id="CS0658" Action="None" />
+    <Rule Id="CS0659" Action="None" />
+    <Rule Id="CS0660" Action="None" />
+    <Rule Id="CS0661" Action="None" />
+    <Rule Id="CS0665" Action="None" />
+    <Rule Id="CS0672" Action="None" />
+    <Rule Id="CS0675" Action="None" />
+    <Rule Id="CS0684" Action="None" />
+    <Rule Id="CS0693" Action="None" />
+    <Rule Id="CS0728" Action="None" />
+    <Rule Id="CS0809" Action="None" />
+    <Rule Id="CS0811" Action="None" />
+    <Rule Id="CS0824" Action="None" />
+    <Rule Id="CS1030" Action="None" />
+    <Rule Id="CS1058" Action="None" />
+    <Rule Id="CS1062" Action="None" />
+    <Rule Id="CS1064" Action="None" />
+    <Rule Id="CS1066" Action="None" />
+    <Rule Id="CS1072" Action="None" />
+    <Rule Id="CS1522" Action="None" />
+    <Rule Id="CS1570" Action="None" />
+    <Rule Id="CS1571" Action="None" />
+    <Rule Id="CS1572" Action="None" />
+    <Rule Id="CS1573" Action="None" />
+    <Rule Id="CS1574" Action="None" />
+    <Rule Id="CS1580" Action="None" />
+    <Rule Id="CS1581" Action="None" />
+    <Rule Id="CS1584" Action="None" />
+    <Rule Id="CS1587" Action="None" />
+    <Rule Id="CS1589" Action="None" />
+    <Rule Id="CS1590" Action="None" />
+    <Rule Id="CS1591" Action="None" />
+    <Rule Id="CS1592" Action="None" />
+    <Rule Id="CS1616" Action="None" />
+    <Rule Id="CS1633" Action="None" />
+    <Rule Id="CS1634" Action="None" />
+    <Rule Id="CS1635" Action="None" />
+    <Rule Id="CS1645" Action="None" />
+    <Rule Id="CS1658" Action="None" />
+    <Rule Id="CS1668" Action="None" />
+    <Rule Id="CS1685" Action="None" />
+    <Rule Id="CS1687" Action="None" />
+    <Rule Id="CS1690" Action="None" />
+    <Rule Id="CS1692" Action="None" />
+    <Rule Id="CS1695" Action="None" />
+    <Rule Id="CS1696" Action="None" />
+    <Rule Id="CS1697" Action="None" />
+    <Rule Id="CS1700" Action="None" />
+    <Rule Id="CS1701" Action="None" />
+    <Rule Id="CS1702" Action="None" />
+    <Rule Id="CS1710" Action="None" />
+    <Rule Id="CS1711" Action="None" />
+    <Rule Id="CS1712" Action="None" />
+    <Rule Id="CS1717" Action="None" />
+    <Rule Id="CS1718" Action="None" />
+    <Rule Id="CS1720" Action="None" />
+    <Rule Id="CS1723" Action="None" />
+    <Rule Id="CS1734" Action="None" />
+    <Rule Id="CS1735" Action="None" />
+    <Rule Id="CS1762" Action="None" />
+    <Rule Id="CS1927" Action="None" />
+    <Rule Id="CS1956" Action="None" />
+    <Rule Id="CS1957" Action="None" />
+    <Rule Id="CS1974" Action="None" />
+    <Rule Id="CS1981" Action="None" />
+    <Rule Id="CS1998" Action="None" />
+    <Rule Id="CS2002" Action="None" />
+    <Rule Id="CS2008" Action="None" />
+    <Rule Id="CS2023" Action="None" />
+    <Rule Id="CS2029" Action="None" />
+    <Rule Id="CS2038" Action="None" />
+    <Rule Id="CS3000" Action="None" />
+    <Rule Id="CS3001" Action="None" />
+    <Rule Id="CS3002" Action="None" />
+    <Rule Id="CS3003" Action="None" />
+    <Rule Id="CS3005" Action="None" />
+    <Rule Id="CS3006" Action="None" />
+    <Rule Id="CS3007" Action="None" />
+    <Rule Id="CS3008" Action="None" />
+    <Rule Id="CS3009" Action="None" />
+    <Rule Id="CS3010" Action="None" />
+    <Rule Id="CS3011" Action="None" />
+    <Rule Id="CS3012" Action="None" />
+    <Rule Id="CS3013" Action="None" />
+    <Rule Id="CS3014" Action="None" />
+    <Rule Id="CS3015" Action="None" />
+    <Rule Id="CS3016" Action="None" />
+    <Rule Id="CS3017" Action="None" />
+    <Rule Id="CS3018" Action="None" />
+    <Rule Id="CS3019" Action="None" />
+    <Rule Id="CS3021" Action="None" />
+    <Rule Id="CS3022" Action="None" />
+    <Rule Id="CS3023" Action="None" />
+    <Rule Id="CS3024" Action="None" />
+    <Rule Id="CS3026" Action="None" />
+    <Rule Id="CS3027" Action="None" />
+    <Rule Id="CS4014" Action="None" />
+    <Rule Id="CS4024" Action="None" />
+    <Rule Id="CS4025" Action="None" />
+    <Rule Id="CS4026" Action="None" />
+    <Rule Id="CS7022" Action="None" />
+    <Rule Id="CS7033" Action="None" />
+    <Rule Id="CS7035" Action="None" />
+    <Rule Id="CS7080" Action="None" />
+    <Rule Id="CS7081" Action="None" />
+    <Rule Id="CS7082" Action="None" />
+    <Rule Id="CS7090" Action="None" />
+    <Rule Id="CS7095" Action="None" />
+    <Rule Id="CS8001" Action="None" />
+    <Rule Id="CS8002" Action="None" />
+    <Rule Id="CS8009" Action="None" />
+    <Rule Id="CS8012" Action="None" />
+    <Rule Id="CS8018" Action="None" />
+    <Rule Id="CS8019" Action="None" />
+    <Rule Id="CS8020" Action="None" />
+    <Rule Id="CS8021" Action="None" />
+    <Rule Id="CS8029" Action="None" />
+    <Rule Id="CS8032" Action="None" />
+    <Rule Id="CS8033" Action="None" />
+    <Rule Id="CS8034" Action="None" />
+    <Rule Id="CS8040" Action="None" />
+    <Rule Id="CS8073" Action="None" />
+    <Rule Id="CS8094" Action="None" />
+    <Rule Id="CS8105" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.EditorFeatures" RuleNamespace="Microsoft.CodeAnalysis.CSharp.EditorFeatures">
+    <Rule Id="UseAutoProperty" Action="None" />
+    <Rule Id="UseAutoPropertyFadedToken" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
+    <Rule Id="IDE0001" Action="None" />
+    <Rule Id="IDE0002" Action="None" />
+    <Rule Id="IDE0003" Action="None" />
+    <Rule Id="IDE0004" Action="None" />
+    <Rule Id="IDE0005" Action="None" />
+    <Rule Id="IDE1005" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="System.Security.Cryptography.Hashing.Algorithms.CSharp.Analyzers" RuleNamespace="System.Security.Cryptography.Hashing.Algorithms.CSharp.Analyzers">
+    <Rule Id="CA5350" Action="Warning" />
+    <Rule Id="CA5351" Action="Warning" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+    <Rule Id="CA1000" Action="None" />           <!-- Do not declare static members on generic types -->
+    <Rule Id="CA1008" Action="None" />           <!-- Enums should have zero value -->
+    <Rule Id="CA1010" Action="None" />           <!-- Collections should implement generic interface -->
+    <Rule Id="CA1012" Action="None" />           <!-- Abstract types should not have constructors -->
+    <Rule Id="CA1014" Action="None" />           <!-- Mark assemblies with CLSCompliant -->
+    <Rule Id="CA1016" Action="Warning" />           <!-- Mark assemblies with assembly version -->
+    <Rule Id="CA1017" Action="None" />           <!-- Mark assemblies with ComVisible -->
+    <Rule Id="CA1018" Action="None" />           <!-- Mark attributes with AttributeUsageAttribute -->
+    <Rule Id="CA1024" Action="None" />           <!-- Use properties where appropriate -->
+    <Rule Id="CA1027" Action="None" />           <!-- Mark enums with FlagsAttribute -->
+    <Rule Id="CA1028" Action="None" />           <!-- Enum Storage should be Int32 -->
+    <Rule Id="CA1030" Action="None" />           <!-- Use events where appropriate -->
+    <Rule Id="CA1033" Action="Warning" />           <!-- Interface methods should be callable by child types -->
+    <Rule Id="CA1034" Action="None" />           <!-- Nested types should not be visible -->
+    <Rule Id="CA1036" Action="None" />           <!-- Override methods on comparable types -->
+    <Rule Id="CA1040" Action="None" />           <!-- Avoid empty interfaces -->
+    <Rule Id="CA1041" Action="None" />           <!-- Provide ObsoleteAttribute message -->
+    <Rule Id="CA1043" Action="None" />           <!-- Use Integral Or String Argument For Indexers -->
+    <Rule Id="CA1044" Action="None" />           <!-- Properties should not be write only -->
+    <Rule Id="CA1050" Action="None" />           <!-- Declare types in namespaces -->
+    <Rule Id="CA1051" Action="None" />           <!-- Do not declare visible instance fields -->
+    <Rule Id="CA1052" Action="None" />           <!-- Static holder types should be Static or NotInheritable -->
+    <Rule Id="CA1054" Action="None" />           <!-- Uri parameters should not be strings -->
+    <Rule Id="CA1055" Action="None" />           <!-- Uri return values should not be strings -->
+    <Rule Id="CA1056" Action="None" />           <!-- Uri properties should not be strings -->
+    <Rule Id="CA1060" Action="Warning" />           <!-- Move pinvokes to native methods class -->
+    <Rule Id="CA1061" Action="Warning" />           <!-- Do not hide base class methods -->
+    <Rule Id="CA1063" Action="Warning" />           <!-- Implement IDisposable Correctly -->
+    <Rule Id="CA1064" Action="None" />           <!-- Exceptions should be public -->
+    <Rule Id="CA1066" Action="None" />           <!-- Type {0} should implement IEquatable<T> because it overrides Equals -->
+    <Rule Id="CA1067" Action="None" />           <!-- Override Object.Equals(object) when implementing IEquatable<T> -->
+    <Rule Id="CA1068" Action="None" />           <!-- CancellationToken parameters must come last -->
+    <Rule Id="CA1501" Action="None" />           <!-- Avoid excessive inheritance -->
+    <Rule Id="CA1502" Action="None" />           <!-- Avoid excessive complexity -->
+    <Rule Id="CA1505" Action="None" />           <!-- Avoid unmaintainable code -->
+    <Rule Id="CA1506" Action="None" />           <!-- Avoid excessive class coupling -->
+    <Rule Id="CA1509" Action="None" />           <!-- Invalid entry in code metrics rule specification file -->
+    <Rule Id="CA1707" Action="None" />           <!-- Identifiers should not contain underscores -->
+    <Rule Id="CA1708" Action="None" />           <!-- Identifiers should differ by more than case -->
+    <Rule Id="CA1710" Action="None" />           <!-- Identifiers should have correct suffix -->
+    <Rule Id="CA1711" Action="None" />           <!-- Identifiers should not have incorrect suffix -->
+    <Rule Id="CA1714" Action="None" />           <!-- Flags enums should have plural names -->
+    <Rule Id="CA1715" Action="None" />           <!-- Identifiers should have correct prefix -->
+    <Rule Id="CA1716" Action="None" />           <!-- Identifiers should not match keywords -->
+    <Rule Id="CA1717" Action="None" />           <!-- Only FlagsAttribute enums should have plural names -->
+    <Rule Id="CA1720" Action="None" />           <!-- Identifier contains type name -->
+    <Rule Id="CA1721" Action="None" />           <!-- Property names should not match get methods -->
+    <Rule Id="CA1724" Action="None" />           <!-- Type names should not match namespaces -->
+    <Rule Id="CA1725" Action="None" />           <!-- Parameter names should match base declaration -->
+    <Rule Id="CA1801" Action="None" />           <!-- Review unused parameters -->
+    <Rule Id="CA1802" Action="None" />           <!-- Use literals where appropriate -->
+    <Rule Id="CA1806" Action="None" />           <!-- Do not ignore method results -->
+    <Rule Id="CA1812" Action="None" />           <!-- Avoid uninstantiated internal classes -->
+    <Rule Id="CA1814" Action="None" />           <!-- Prefer jagged arrays over multidimensional -->
+    <Rule Id="CA1815" Action="None" />           <!-- Override equals and operator equals on value types -->
+    <Rule Id="CA1819" Action="None" />           <!-- Properties should not return arrays -->
+    <Rule Id="CA1822" Action="None" />           <!-- Mark members as static -->
+    <Rule Id="CA1823" Action="None" />           <!-- Avoid unused private fields -->
+    <Rule Id="CA2007" Action="None" />           <!-- Do not directly await a Task -->
+    <Rule Id="CA2119" Action="None" />           <!-- Seal methods that satisfy private interfaces -->
+    <Rule Id="CA2211" Action="None" />           <!-- Non-constant fields should not be visible -->
+    <Rule Id="CA2214" Action="Warning" />           <!-- Do not call overridable methods in constructors -->
+    <Rule Id="CA2217" Action="None" />           <!-- Do not mark enums with FlagsAttribute -->
+    <Rule Id="CA2219" Action="None" />           <!-- Do not raise exceptions in finally clauses -->
+    <Rule Id="CA2225" Action="None" />           <!-- Operator overloads have named alternates -->
+    <Rule Id="CA2226" Action="None" />           <!-- Operators should have symmetrical overloads -->
+    <Rule Id="CA2227" Action="None" />           <!-- Collection properties should be read only -->
+    <Rule Id="CA2231" Action="Warning" />           <!-- Overload operator equals on overriding value type Equals -->
+    <Rule Id="CA2244" Action="None" />           <!-- Do not duplicate indexed element initializations -->
+    <Rule Id="CA9999" Action="None" />           <!-- Analyzer version mismatch -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeQuality.CSharp.Analyzers" RuleNamespace="Microsoft.CodeQuality.CSharp.Analyzers">
+    <Rule Id="Async001" Action="None" />           <!-- Avoid Async Void -->
+    <Rule Id="Async002" Action="None" />           <!-- Async Method Names Should End in Async -->
+    <Rule Id="Async003" Action="None" />           <!-- Don't Pass Async Lambdas as Void Returning Delegate Types -->
+    <Rule Id="Async004" Action="None" />           <!-- Don't Store Async Lambdas as Void Returning Delegate Types -->
+    <Rule Id="Async005" Action="None" />           <!-- Propagate CancellationTokens When Possible -->
+    <Rule Id="Async006" Action="None" />           <!-- Don't Mix Blocking and Async -->
+    <Rule Id="CA1001" Action="Warning" />           <!-- Types that own disposable fields should be disposable -->
+    <Rule Id="CA1003" Action="Warning" />           <!-- Use generic event handler instances -->
+    <Rule Id="CA1019" Action="None" />           <!-- Define accessors for attribute arguments -->
+    <Rule Id="CA1032" Action="None" />           <!-- Implement standard exception constructors -->
+    <Rule Id="CA1065" Action="Warning" />           <!-- Do not raise exceptions in unexpected locations -->
+    <Rule Id="CA1200" Action="None" />           <!-- Avoid using cref tags with a prefix -->
+    <Rule Id="CA1500" Action="None" />           <!-- Variable names should not match field names -->
+    <Rule Id="CA1507" Action="None" />           <!-- Use nameof to express symbol names -->
+    <Rule Id="CA1726" Action="None" />           <!-- Use preferred terms -->
+    <Rule Id="CA1821" Action="Warning" />           <!-- Remove empty Finalizers -->
+    <Rule Id="CA2001" Action="None" />           <!-- Avoid calling problematic methods -->
+    <Rule Id="CA2109" Action="None" />           <!-- Review visible event handlers -->
+    <Rule Id="CA2200" Action="Warning" />           <!-- Rethrow to preserve stack details. -->
+    <Rule Id="CA2234" Action="None" />           <!-- Pass system uri objects instead of strings -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeQuality.VisualBasic.Analyzers" RuleNamespace="Microsoft.CodeQuality.VisualBasic.Analyzers">
+    <Rule Id="Async001" Action="None" />           <!-- Avoid Async Void -->
+    <Rule Id="Async002" Action="None" />           <!-- Async Method Names Should End in Async -->
+    <Rule Id="Async003" Action="None" />           <!-- Don't Pass Async Lambdas as Void Returning Delegate Types -->
+    <Rule Id="Async004" Action="None" />           <!-- Don't Store Async Lambdas as Void Returning Delegate Types -->
+    <Rule Id="Async005" Action="None" />           <!-- Propagate CancellationTokens When Possible -->
+    <Rule Id="Async006" Action="None" />           <!-- Don't Mix Blocking and Async -->
+    <Rule Id="CA1001" Action="Warning" />           <!-- Types that own disposable fields should be disposable -->
+    <Rule Id="CA1003" Action="Warning" />           <!-- Use generic event handler instances -->
+    <Rule Id="CA1019" Action="None" />           <!-- Define accessors for attribute arguments -->
+    <Rule Id="CA1032" Action="None" />           <!-- Implement standard exception constructors -->
+    <Rule Id="CA1065" Action="Warning" />           <!-- Do not raise exceptions in unexpected locations -->
+    <Rule Id="CA1200" Action="None" />           <!-- Avoid using cref tags with a prefix -->
+    <Rule Id="CA1500" Action="None" />           <!-- Variable names should not match field names -->
+    <Rule Id="CA1507" Action="None" />           <!-- Use nameof to express symbol names -->
+    <Rule Id="CA1726" Action="None" />           <!-- Use preferred terms -->
+    <Rule Id="CA1821" Action="Warning" />           <!-- Remove empty Finalizers -->
+    <Rule Id="CA2001" Action="None" />           <!-- Avoid calling problematic methods -->
+    <Rule Id="CA2109" Action="None" />           <!-- Review visible event handlers -->
+    <Rule Id="CA2200" Action="Warning" />           <!-- Rethrow to preserve stack details. -->
+    <Rule Id="CA2218" Action="None" />           <!-- Override GetHashCode on overriding Equals -->
+    <Rule Id="CA2224" Action="None" />           <!-- Override Equals on overloading operator equals -->
+    <Rule Id="CA2234" Action="None" />           <!-- Pass system uri objects instead of strings -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetCore.Analyzers" RuleNamespace="Microsoft.NetCore.Analyzers">
+    <Rule Id="CA1304" Action="None" />           <!-- Specify CultureInfo -->
+    <Rule Id="CA1305" Action="None" />           <!-- Specify IFormatProvider -->
+    <Rule Id="CA1307" Action="None" />           <!-- Specify StringComparison -->
+    <Rule Id="CA1308" Action="None" />           <!-- Normalize strings to uppercase -->
+    <Rule Id="CA1401" Action="Warning" />           <!-- P/Invokes should not be visible -->
+    <Rule Id="CA1813" Action="None" />           <!-- Avoid unsealed attributes -->
+    <Rule Id="CA1816" Action="None" />           <!-- Dispose methods should call SuppressFinalize -->
+    <Rule Id="CA1820" Action="None" />           <!-- Test for empty strings using string length -->
+    <Rule Id="CA1826" Action="None" />           <!-- Do not use Enumerable methods on indexable collections. Instead use the collection directly -->
+    <Rule Id="CA2002" Action="Warning" />           <!-- Do not lock on objects with weak identity -->
+    <Rule Id="CA2008" Action="None" />           <!-- Do not create tasks without passing a TaskScheduler -->
+    <Rule Id="CA2009" Action="None" />           <!-- Do not call ToImmutableCollection on an ImmutableCollection value -->
+    <Rule Id="CA2101" Action="Warning" />           <!-- Specify marshaling for P/Invoke string arguments -->
+	<Rule Id="CA2100" Action="Warning" />
+    <Rule Id="CA2208" Action="None" />           <!-- Instantiate argument exceptions correctly -->
+	<Rule Id="CA2213" Action="Warning" />
+    <Rule Id="CA2216" Action="Warning" />           <!-- Disposable types should declare finalizer -->
+    <Rule Id="CA2241" Action="Warning" />           <!-- Provide correct arguments to formatting methods -->
+    <Rule Id="CA2242" Action="Warning" />           <!-- Test for NaN correctly -->
+    <Rule Id="CA2243" Action="None" />           <!-- Attribute string literals should parse correctly -->
+    <Rule Id="CA9999" Action="None" />           <!-- Analyzer version mismatch -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetCore.CSharp.Analyzers" RuleNamespace="Microsoft.NetCore.CSharp.Analyzers">
+    <Rule Id="CA1309" Action="None" />           <!-- Use ordinal stringcomparison -->
+    <Rule Id="CA1414" Action="None" />           <!-- Mark boolean PInvoke arguments with MarshalAs -->
+    <Rule Id="CA1601" Action="None" />           <!-- Do not use timers that prevent power state changes -->
+    <Rule Id="CA1810" Action="None" />           <!-- Initialize reference type static fields inline -->
+    <Rule Id="CA1824" Action="None" />           <!-- Mark assemblies with NeutralResourcesLanguageAttribute -->
+    <Rule Id="CA1825" Action="None" />           <!-- Avoid zero-length array allocations. -->
+    <Rule Id="CA2010" Action="None" />           <!-- Always consume the value returned by methods marked with PreserveSigAttribute -->
+    <Rule Id="CA2201" Action="None" />           <!-- Do not raise reserved exception types -->
+    <Rule Id="CA2205" Action="None" />           <!-- Use managed equivalents of win32 api -->
+    <Rule Id="CA2207" Action="Warning" />           <!-- Initialize value type static fields inline -->
+    <Rule Id="CA2215" Action="None" />           <!-- Dispose Methods Should Call Base Class Dispose -->
+    <Rule Id="CA5350" Action="Warning" />           <!-- Do not use insecure cryptographic algorithm SHA1. -->
+    <Rule Id="CA5351" Action="Warning" />           <!-- Do not use insecure cryptographic algorithm MD5. -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetCore.VisualBasic.Analyzers" RuleNamespace="Microsoft.NetCore.VisualBasic.Analyzers">
+    <Rule Id="CA1309" Action="None" />           <!-- Use ordinal stringcomparison -->
+    <Rule Id="CA1414" Action="None" />           <!-- Mark boolean PInvoke arguments with MarshalAs -->
+    <Rule Id="CA1601" Action="None" />           <!-- Do not use timers that prevent power state changes -->
+    <Rule Id="CA1810" Action="None" />           <!-- Initialize reference type static fields inline -->
+    <Rule Id="CA1824" Action="None" />           <!-- Mark assemblies with NeutralResourcesLanguageAttribute -->
+    <Rule Id="CA1825" Action="None" />           <!-- Avoid zero-length array allocations. -->
+    <Rule Id="CA2010" Action="None" />           <!-- Always consume the value returned by methods marked with PreserveSigAttribute -->
+    <Rule Id="CA2201" Action="None" />           <!-- Do not raise reserved exception types -->
+    <Rule Id="CA2205" Action="None" />           <!-- Use managed equivalents of win32 api -->
+    <Rule Id="CA2207" Action="Warning" />           <!-- Initialize value type static fields inline -->
+    <Rule Id="CA2215" Action="None" />           <!-- Dispose Methods Should Call Base Class Dispose -->
+    <Rule Id="CA5350" Action="Warning" />           <!-- Do not use insecure cryptographic algorithm SHA1. -->
+    <Rule Id="CA5351" Action="Warning" />           <!-- Do not use insecure cryptographic algorithm MD5. -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetFramework.Analyzers" RuleNamespace="Microsoft.NetFramework.Analyzers">
+    <Rule Id="CA1058" Action="None" />           <!-- Types should not extend certain base types -->
+    <Rule Id="CA2153" Action="Warning" />           <!-- Do Not Catch Corrupted State Exceptions -->
+    <Rule Id="CA2229" Action="Warning" />           <!-- Implement serialization constructors -->
+    <Rule Id="CA2235" Action="Warning" />           <!-- Mark all non-serializable fields -->
+    <Rule Id="CA2237" Action="Warning" />           <!-- Mark ISerializable types with serializable -->
+    <Rule Id="CA3075" Action="Warning" />           <!-- Insecure DTD processing in XML -->
+    <Rule Id="CA3147" Action="None" />           <!-- MarkVerbHandlersWithValidateAntiforgeryTokenTitle -->
+    <Rule Id="CA9999" Action="None" />           <!-- Analyzer version mismatch -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetFramework.CSharp.Analyzers" RuleNamespace="Microsoft.NetFramework.CSharp.Analyzers">
+    <Rule Id="CA1300" Action="None" />           <!-- Specify MessageBoxOptions -->
+    <Rule Id="CA1301" Action="Warning" />           <!-- Avoid duplicate accelerators -->
+    <Rule Id="CA1306" Action="None" />           <!-- Set locale for data types -->
+    <Rule Id="CA2212" Action="Warning" />           <!-- Do not mark serviced components with WebMethod -->
+    <Rule Id="CA2232" Action="Warning" />           <!-- Mark Windows Forms entry points with STAThread -->
+    <Rule Id="CA2236" Action="Warning" />           <!-- Call base class methods on ISerializable types -->
+    <Rule Id="CA2238" Action="Warning" />           <!-- Implement serialization methods correctly -->
+    <Rule Id="CA2239" Action="None" />           <!-- Provide deserialization methods for optional fields -->
+    <Rule Id="CA2240" Action="Warning" />           <!-- Implement ISerializable correctly -->
+    <Rule Id="CA3076" Action="Warning" />           <!-- Insecure XSLT script processing. -->
+    <Rule Id="CA3077" Action="Warning" />           <!-- Insecure Processing in API Design, XmlDocument and XmlTextReader -->
+    <Rule Id="CA5350" Action="Warning" />           <!-- Do Not Use Weak Cryptographic Algorithms -->
+    <Rule Id="CA5351" Action="Warning" />           <!-- Do Not Use Broken Cryptographic Algorithms -->
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetFramework.VisualBasic.Analyzers" RuleNamespace="Microsoft.NetFramework.VisualBasic.Analyzers">
+    <Rule Id="CA1300" Action="None" />           <!-- Specify MessageBoxOptions -->
+    <Rule Id="CA1301" Action="Warning" />           <!-- Avoid duplicate accelerators -->
+    <Rule Id="CA1306" Action="None" />           <!-- Set locale for data types -->
+    <Rule Id="CA2212" Action="Warning" />           <!-- Do not mark serviced components with WebMethod -->
+    <Rule Id="CA2232" Action="Warning" />           <!-- Mark Windows Forms entry points with STAThread -->
+    <Rule Id="CA2236" Action="Warning" />           <!-- Call base class methods on ISerializable types -->
+    <Rule Id="CA2238" Action="Warning" />           <!-- Implement serialization methods correctly -->
+    <Rule Id="CA2239" Action="None" />           <!-- Provide deserialization methods for optional fields -->
+    <Rule Id="CA2240" Action="Warning" />           <!-- Implement ISerializable correctly -->
+    <Rule Id="CA3076" Action="Warning" />           <!-- Insecure XSLT script processing. -->
+    <Rule Id="CA3077" Action="Warning" />           <!-- Insecure Processing in API Design, XmlDocument and XmlTextReader -->
+    <Rule Id="CA5350" Action="Warning" />           <!-- Do Not Use Weak Cryptographic Algorithms -->
+    <Rule Id="CA5351" Action="Warning" />           <!-- Do Not Use Broken Cryptographic Algorithms -->
+  </Rules>
+  <Rules AnalyzerId="Text.CSharp.Analyzers" RuleNamespace="Text.CSharp.Analyzers">
+    <Rule Id="CA1704" Action="None" />           <!-- Identifiers should be spelled correctly -->
+  </Rules>
+  <Rules AnalyzerId="Text.VisualBasic.Analyzers" RuleNamespace="Text.VisualBasic.Analyzers">
+    <Rule Id="CA1704" Action="None" />           <!-- Identifiers should be spelled correctly -->
+  </Rules>
+     <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
+    <Rule Id="S100" Action="None" />           <!-- Methods and properties should be named in camel case -->
+    <Rule Id="S1006" Action="None" />           <!-- Method overrides should not change parameter defaults -->
+    <Rule Id="S101" Action="None" />           <!-- Types should be named in camel case -->
+    <Rule Id="S103" Action="None" />           <!-- Lines should not be too long -->
+    <Rule Id="S104" Action="None" />           <!-- Files should not have too many lines of code -->
+    <Rule Id="S1048" Action="None" />           <!-- Destructors should not throw exceptions -->
+    <Rule Id="S105" Action="None" />           <!-- Tabulation characters should not be used -->
+    <Rule Id="S106" Action="None" />           <!-- Standard outputs should not be used directly to log anything -->
+    <Rule Id="S1066" Action="None" />           <!-- Collapsible "if" statements should be merged -->
+    <Rule Id="S1067" Action="None" />           <!-- Expressions should not be too complex -->
+    <Rule Id="S107" Action="None" />           <!-- Methods should not have too many parameters -->
+    <Rule Id="S1075" Action="None" />           <!-- URIs should not be hardcoded -->
+    <Rule Id="S108" Action="None" />           <!-- Nested blocks of code should not be left empty -->
+    <Rule Id="S109" Action="None" />           <!-- Magic numbers should not be used -->
+    <Rule Id="S110" Action="None" />           <!-- Inheritance tree of classes should not be too deep -->
+    <Rule Id="S1104" Action="None" />           <!-- Fields should not have public accessibility -->
+    <Rule Id="S1109" Action="None" />           <!-- A close curly brace should be located at the beginning of a line -->
+    <Rule Id="S1110" Action="None" />           <!-- Redundant pairs of parentheses should be removed -->
+    <Rule Id="S1116" Action="None" />           <!-- Empty statements should be removed -->
+    <Rule Id="S1117" Action="None" />           <!-- Local variables should not shadow class fields -->
+    <Rule Id="S1118" Action="None" />           <!-- Utility classes should not have public constructors -->
+    <Rule Id="S112" Action="None" />           <!-- General exceptions should never be thrown -->
+    <Rule Id="S1121" Action="None" />           <!-- Assignments should not be made from within sub-expressions -->
+    <Rule Id="S1123" Action="None" />           <!-- "Obsolete" attributes should include explanations -->
+    <Rule Id="S1125" Action="None" />           <!-- Boolean literals should not be redundant -->
+    <Rule Id="S113" Action="None" />           <!-- Files should contain an empty newline at the end -->
+    <Rule Id="S1134" Action="None" />           <!-- Track uses of "FIXME" tags -->
+    <Rule Id="S1135" Action="None" />           <!-- Track uses of "TODO" tags -->
+    <Rule Id="S1144" Action="None" />           <!-- Unused private types or members should be removed -->
+    <Rule Id="S1145" Action="None" />           <!-- Useless "if(true) {...}" and "if(false){...}" blocks should be removed -->
+    <Rule Id="S1147" Action="None" />           <!-- Exit methods should not be called -->
+    <Rule Id="S1151" Action="None" />           <!-- "switch case" clauses should not have too many lines of code -->
+    <Rule Id="S1155" Action="None" />           <!-- "Any()" should be used to test for emptiness -->
+    <Rule Id="S1163" Action="None" />           <!-- Exceptions should not be thrown in finally blocks -->
+    <Rule Id="S1168" Action="None" />           <!-- Empty arrays and collections should be returned instead of null -->
+    <Rule Id="S1172" Action="None" />           <!-- Unused method parameters should be removed -->
+    <Rule Id="S1185" Action="None" />           <!-- Overriding members should do more than simply call the same member in the base class -->
+    <Rule Id="S1186" Action="None" />           <!-- Methods should not be empty -->
+    <Rule Id="S1192" Action="None" />           <!-- String literals should not be duplicated -->
+    <Rule Id="S1200" Action="None" />           <!-- Classes should not be coupled to too many other classes (Single Responsibility Principle) -->
+    <Rule Id="S1206" Action="None" />           <!-- "Equals(Object)" and "GetHashCode()" should be overridden in pairs -->
+    <Rule Id="S121" Action="None" />           <!-- Control structures should use curly braces -->
+    <Rule Id="S1210" Action="None" />           <!-- "Equals" and the comparison operators should be overridden when implementing "IComparable" -->
+    <Rule Id="S1215" Action="None" />           <!-- "GC.Collect" should not be called -->
+    <Rule Id="S122" Action="None" />           <!-- Statements should be on separate lines -->
+    <Rule Id="S1226" Action="None" />           <!-- Method parameters, caught exceptions and foreach variables' initial values should not be ignored -->
+    <Rule Id="S1227" Action="None" />           <!-- break statements should not be used except for switch cases -->
+    <Rule Id="S1244" Action="None" />           <!-- Floating point numbers should not be tested for equality -->
+    <Rule Id="S125" Action="None" />           <!-- Sections of code should not be commented out -->
+    <Rule Id="S126" Action="None" />           <!-- "if ... else if" constructs should end with "else" clauses -->
+    <Rule Id="S1264" Action="None" />           <!-- A "while" loop should be used instead of a "for" loop -->
+    <Rule Id="S127" Action="None" />           <!-- "for" loop stop conditions should be invariant -->
+    <Rule Id="S1301" Action="None" />           <!-- "switch" statements should have at least 3 "case" clauses -->
+    <Rule Id="S1309" Action="None" />           <!-- Track uses of in-source issue suppressions -->
+    <Rule Id="S131" Action="None" />           <!-- "switch/Select" statements should contain a "default/Case Else" clauses -->
+    <Rule Id="S1313" Action="None" />           <!-- Using hardcoded IP addresses is security-sensitive -->
+    <Rule Id="S134" Action="None" />           <!-- Control flow statements "if", "switch", "for", "foreach", "while", "do"  and "try" should not be nested too deeply -->
+    <Rule Id="S138" Action="None" />           <!-- Functions should not have too many lines of code -->
+    <Rule Id="S1449" Action="None" />           <!-- Culture should be specified for "string" operations -->
+    <Rule Id="S1450" Action="None" />           <!-- Private fields only used as local variables in methods should become local variables -->
+    <Rule Id="S1451" Action="None" />           <!-- Track lack of copyright and license headers -->
+    <Rule Id="S1479" Action="None" />           <!-- "switch" statements should not have too many "case" clauses -->
+    <Rule Id="S1481" Action="None" />           <!-- Unused local variables should be removed -->
+    <Rule Id="S1541" Action="None" />           <!-- Methods and properties should not be too complex -->
+    <Rule Id="S1607" Action="None" />           <!-- Tests should not be ignored -->
+    <Rule Id="S1643" Action="None" />           <!-- Strings should not be concatenated using '+' in a loop -->
+    <Rule Id="S1656" Action="None" />           <!-- Variables should not be self-assigned -->
+    <Rule Id="S1659" Action="None" />           <!-- Multiple variables should not be declared on the same line -->
+    <Rule Id="S1694" Action="None" />           <!-- An abstract class should have both abstract and concrete methods -->
+    <Rule Id="S1696" Action="None" />           <!-- NullReferenceException should not be caught -->
+    <Rule Id="S1697" Action="None" />           <!-- Short-circuit logic should be used to prevent null pointer dereferences in conditionals -->
+    <Rule Id="S1698" Action="None" />           <!-- "==" should not be used when "Equals" is overridden -->
+    <Rule Id="S1699" Action="None" />           <!-- Constructors should only call non-overridable methods -->
+    <Rule Id="S1751" Action="None" />           <!-- Loops with at most one iteration should be refactored -->
+    <Rule Id="S1764" Action="None" />           <!-- Identical expressions should not be used on both sides of a binary operator -->
+    <Rule Id="S1821" Action="None" />           <!-- "switch" statements should not be nested -->
+    <Rule Id="S1848" Action="None" />           <!-- Objects should not be created to be dropped immediately without being used -->
+    <Rule Id="S1854" Action="None" />           <!-- Dead stores should be removed -->
+    <Rule Id="S1858" Action="None" />           <!-- "ToString()" calls should not be redundant -->
+    <Rule Id="S1862" Action="None" />           <!-- Related "if/else if" statements should not have the same condition -->
+    <Rule Id="S1871" Action="None" />           <!-- Two branches in a conditional structure should not have exactly the same implementation -->
+    <Rule Id="S1905" Action="None" />           <!-- Redundant casts should not be used -->
+    <Rule Id="S1939" Action="None" />           <!-- Inheritance list should not be redundant -->
+    <Rule Id="S1940" Action="None" />           <!-- Boolean checks should not be inverted -->
+    <Rule Id="S1944" Action="None" />           <!-- Inappropriate casts should not be made -->
+    <Rule Id="S1994" Action="None" />           <!-- "for" loop increment clauses should modify the loops' counters -->
+    <Rule Id="S2068" Action="None" />           <!-- Credentials should not be hard-coded -->
+    <Rule Id="S2070" Action="None" />           <!-- SHA-1 and Message-Digest hash algorithms should not be used in secure contexts -->
+    <Rule Id="S2092" Action="None" />           <!-- Creating cookies without the "secure" flag is security-sensitive -->
+    <Rule Id="S2114" Action="None" />           <!-- Collections should not be passed as arguments to their own methods -->
+    <Rule Id="S2123" Action="None" />           <!-- Values should not be uselessly incremented -->
+    <Rule Id="S2148" Action="None" />           <!-- Underscores should be used to make large numbers readable -->
+    <Rule Id="S2156" Action="None" />           <!-- "sealed" classes should not have "protected" members -->
+    <Rule Id="S2178" Action="None" />           <!-- Short-circuit logic should be used in boolean contexts -->
+    <Rule Id="S2183" Action="None" />           <!-- Ints and longs should not be shifted by zero or more than their number of bits-1 -->
+    <Rule Id="S2184" Action="None" />           <!-- Results of integer division should not be assigned to floating point variables -->
+    <Rule Id="S2187" Action="None" />           <!-- TestCases should contain tests -->
+    <Rule Id="S2190" Action="None" />           <!-- Recursion should not be infinite -->
+    <Rule Id="S2197" Action="None" />           <!-- Modulus results should not be checked for direct equality -->
+    <Rule Id="S2201" Action="None" />           <!-- Return values from functions without side effects should not be ignored -->
+    <Rule Id="S2219" Action="None" />           <!-- Runtime type checking should be simplified -->
+    <Rule Id="S2221" Action="None" />           <!-- "Exception" should not be caught when not required by called methods -->
+    <Rule Id="S2223" Action="None" />           <!-- Non-constant static fields should not be visible -->
+    <Rule Id="S2225" Action="None" />           <!-- "ToString()" method should not return null -->
+    <Rule Id="S2228" Action="None" />           <!-- Console logging should not be used -->
+    <Rule Id="S2234" Action="None" />           <!-- Parameters should be passed in the correct order -->
+    <Rule Id="S2245" Action="None" />           <!-- Using pseudorandom number generators (PRNGs) is security-sensitive -->
+    <Rule Id="S2255" Action="None" />           <!-- Storing personal data in cookies is security-sensitive -->
+    <Rule Id="S2259" Action="None" />           <!-- Null pointers should not be dereferenced -->
+    <Rule Id="S2275" Action="None" />           <!-- Composite format strings should not lead to unexpected behavior at runtime -->
+    <Rule Id="S2278" Action="None" />           <!-- Neither DES (Data Encryption Standard) nor DESede (3DES) should be used -->
+    <Rule Id="S2290" Action="None" />           <!-- Field-like events should not be virtual -->
+    <Rule Id="S2291" Action="None" />           <!-- Overflow checking should not be disabled for "Enumerable.Sum" -->
+    <Rule Id="S2292" Action="None" />           <!-- Trivial properties should be auto-implemented -->
+    <Rule Id="S2302" Action="None" />           <!-- "nameof" should be used -->
+    <Rule Id="S2306" Action="None" />           <!-- "async" and "await" should not be used as identifiers -->
+    <Rule Id="S2325" Action="None" />           <!-- Methods and properties that don't access instance data should be static -->
+    <Rule Id="S2326" Action="None" />           <!-- Unused type parameters should be removed -->
+    <Rule Id="S2327" Action="None" />           <!-- "try" statements with identical "catch" and/or "finally" blocks should be merged -->
+    <Rule Id="S2328" Action="None" />           <!-- "GetHashCode" should not reference mutable fields -->
+    <Rule Id="S2330" Action="None" />           <!-- Array covariance should not be used -->
+    <Rule Id="S2333" Action="None" />           <!-- Redundant modifiers should not be used -->
+    <Rule Id="S2339" Action="None" />           <!-- Public constant members should not be used -->
+    <Rule Id="S2342" Action="None" />           <!-- Enumeration types should comply with a naming convention -->
+    <Rule Id="S2344" Action="None" />           <!-- Enumeration type names should not have "Flags" or "Enum" suffixes -->
+    <Rule Id="S2345" Action="None" />           <!-- Flags enumerations should explicitly initialize all their members -->
+    <Rule Id="S2346" Action="None" />           <!-- Flags enumerations zero-value members should be named "None" -->
+    <Rule Id="S2357" Action="None" />           <!-- Fields should be private -->
+    <Rule Id="S2360" Action="None" />           <!-- Optional parameters should not be used -->
+    <Rule Id="S2365" Action="None" />           <!-- Properties should not make collection or array copies -->
+    <Rule Id="S2368" Action="None" />           <!-- Public methods should not have multidimensional array parameters -->
+    <Rule Id="S2372" Action="None" />           <!-- Exceptions should not be thrown from property getters -->
+    <Rule Id="S2376" Action="None" />           <!-- Write-only properties should not be used -->
+    <Rule Id="S2386" Action="None" />           <!-- Mutable fields should not be "public static" -->
+    <Rule Id="S2387" Action="None" />           <!-- Child class fields should not shadow parent class fields -->
+    <Rule Id="S2436" Action="None" />           <!-- Classes and methods should not have too many generic parameters -->
+    <Rule Id="S2437" Action="None" />           <!-- Silly bit operations should not be performed -->
+    <Rule Id="S2486" Action="None" />           <!-- Generic exceptions should not be ignored -->
+    <Rule Id="S2551" Action="None" />           <!-- Types and "this" should not be used for locking -->
+    <Rule Id="S2583" Action="None" />           <!-- Conditionally executed blocks should be reachable -->
+    <Rule Id="S2589" Action="None" />           <!-- Boolean expressions should not be gratuitous -->
+    <Rule Id="S2674" Action="None" />           <!-- The length returned from a stream read should be checked -->
+    <Rule Id="S2681" Action="None" />           <!-- Multiline blocks should be enclosed in curly braces -->
+    <Rule Id="S2688" Action="None" />           <!-- "NaN" should not be used in comparisons -->
+    <Rule Id="S2692" Action="None" />           <!-- "IndexOf" checks should not be for positive numbers -->
+    <Rule Id="S2696" Action="None" />           <!-- Instance members should not write to "static" fields -->
+    <Rule Id="S2699" Action="None" />           <!-- Tests should include assertions -->
+    <Rule Id="S2701" Action="None" />           <!-- Literal boolean values should not be used in assertions -->
+    <Rule Id="S2737" Action="None" />           <!-- "catch" clauses should do more than rethrow -->
+    <Rule Id="S2743" Action="None" />           <!-- Static fields should not be used in generic types -->
+    <Rule Id="S2757" Action="None" />           <!-- "=+" should not be used instead of "+=" -->
+    <Rule Id="S2758" Action="None" />           <!-- The ternary operator should not return the same value regardless of the condition -->
+    <Rule Id="S2760" Action="None" />           <!-- Sequential tests should not check the same condition -->
+    <Rule Id="S2761" Action="None" />           <!-- Doubled prefix operators "!!" and "~~" should not be used -->
+    <Rule Id="S2930" Action="None" />           <!-- "IDisposables" should be disposed -->
+    <Rule Id="S2931" Action="None" />           <!-- Classes with "IDisposable" members or native resources should implement "IDisposable" -->
+    <Rule Id="S2933" Action="None" />           <!-- Fields that are only assigned in the constructor should be "readonly" -->
+    <Rule Id="S2934" Action="None" />           <!-- Property assignments should not be made for "readonly" fields not constrained to reference types -->
+    <Rule Id="S2952" Action="None" />           <!-- Classes should "Dispose" of members from the classes' own "Dispose" methods -->
+    <Rule Id="S2953" Action="None" />           <!-- Methods named "Dispose" should implement "IDisposable.Dispose" -->
+    <Rule Id="S2955" Action="None" />           <!-- Generic parameters not constrained to reference types should not be compared to "null" -->
+    <Rule Id="S2971" Action="None" />           <!-- "IEnumerable" LINQs should be simplified -->
+    <Rule Id="S2995" Action="None" />           <!-- "Object.ReferenceEquals" should not be used for value types -->
+    <Rule Id="S2996" Action="None" />           <!-- "ThreadStatic" fields should not be initialized -->
+    <Rule Id="S2997" Action="None" />           <!-- "IDisposables" created in a "using" statement should not be returned -->
+    <Rule Id="S3005" Action="None" />           <!-- "ThreadStatic" should not be used on non-static fields -->
+    <Rule Id="S3010" Action="None" />           <!-- Static fields should not be updated in constructors -->
+    <Rule Id="S3052" Action="None" />           <!-- Members should not be initialized to default values -->
+    <Rule Id="S3060" Action="None" />           <!-- "is" should not be used with "this" -->
+    <Rule Id="S3168" Action="None" />           <!-- "async" methods should not return "void" -->
+    <Rule Id="S3169" Action="None" />           <!-- Multiple "OrderBy" calls should not be used -->
+    <Rule Id="S3172" Action="None" />           <!-- Delegates should not be subtracted -->
+    <Rule Id="S3215" Action="None" />           <!-- "interface" instances should not be cast to concrete types -->
+    <Rule Id="S3216" Action="None" />           <!-- "ConfigureAwait(false)" should be used -->
+    <Rule Id="S3217" Action="None" />           <!-- "Explicit" conversions of "foreach" loops should not be used -->
+    <Rule Id="S3218" Action="None" />           <!-- Inner class members should not shadow outer class "static" or type members -->
+    <Rule Id="S3220" Action="None" />           <!-- Method calls should not resolve ambiguously to overloads with "params" -->
+    <Rule Id="S3234" Action="None" />           <!-- "GC.SuppressFinalize" should not be invoked for types without destructors -->
+    <Rule Id="S3235" Action="None" />           <!-- Redundant parentheses should not be used -->
+    <Rule Id="S3236" Action="None" />           <!-- Caller information arguments should not be provided explicitly -->
+    <Rule Id="S3237" Action="None" />           <!-- "value" parameters should be used -->
+    <Rule Id="S3240" Action="None" />           <!-- The simplest possible condition syntax should be used -->
+    <Rule Id="S3241" Action="None" />           <!-- Methods should not return values that are never used -->
+    <Rule Id="S3242" Action="None" />           <!-- Method parameters should be declared with base types -->
+    <Rule Id="S3244" Action="None" />           <!-- Anonymous delegates should not be used to unsubscribe from Events -->
+    <Rule Id="S3246" Action="None" />           <!-- Generic type parameters should be co/contravariant when possible -->
+    <Rule Id="S3247" Action="None" />           <!-- Duplicate casts should not be made -->
+    <Rule Id="S3249" Action="None" />           <!-- Classes directly extending "object" should not call "base" in "GetHashCode" or "Equals" -->
+    <Rule Id="S3251" Action="None" />           <!-- Implementations should be provided for "partial" methods -->
+    <Rule Id="S3253" Action="None" />           <!-- Constructor and destructor declarations should not be redundant -->
+    <Rule Id="S3254" Action="None" />           <!-- Default parameter values should not be passed as arguments -->
+    <Rule Id="S3256" Action="None" />           <!-- "string.IsNullOrEmpty" should be used -->
+    <Rule Id="S3257" Action="None" />           <!-- Declarations and initializations should be as concise as possible -->
+    <Rule Id="S3261" Action="None" />           <!-- Namespaces should not be empty -->
+    <Rule Id="S3262" Action="None" />           <!-- "params" should be used on overrides -->
+    <Rule Id="S3263" Action="None" />           <!-- Static fields should appear in the order they must be initialized  -->
+    <Rule Id="S3264" Action="None" />           <!-- Events should be invoked -->
+    <Rule Id="S3265" Action="None" />           <!-- Non-flags enums should not be used in bitwise operations -->
+    <Rule Id="S3330" Action="None" />           <!-- "HttpOnly" should be set on cookies -->
+    <Rule Id="S3343" Action="None" />           <!-- Caller information parameters should come at the end of the parameter list -->
+    <Rule Id="S3346" Action="None" />           <!-- Expressions used in "Debug.Assert" should not produce side effects -->
+    <Rule Id="S3353" Action="None" />           <!-- Unchanged local variables should be "const" -->
+    <Rule Id="S3358" Action="None" />           <!-- Ternary operators should not be nested -->
+    <Rule Id="S3366" Action="None" />           <!-- "this" should not be exposed from constructors -->
+    <Rule Id="S3376" Action="None" />           <!-- Attribute, EventArgs, and Exception type names should end with the type being extended -->
+    <Rule Id="S3397" Action="None" />           <!-- "base.Equals" should not be used to check for reference equality in "Equals" if "base" is not "object" -->
+    <Rule Id="S3400" Action="None" />           <!-- Methods should not return constants -->
+    <Rule Id="S3415" Action="None" />           <!-- Assertion arguments should be passed in the correct order -->
+    <Rule Id="S3427" Action="None" />           <!-- Method overloads with default parameter values should not overlap  -->
+    <Rule Id="S3431" Action="None" />           <!-- "[ExpectedException]" should not be used -->
+    <Rule Id="S3433" Action="None" />           <!-- Test method signatures should be correct -->
+    <Rule Id="S3440" Action="None" />           <!-- Variables should not be checked against the values they're about to be assigned -->
+    <Rule Id="S3441" Action="None" />           <!-- Redundant property names should be omitted in anonymous classes -->
+    <Rule Id="S3442" Action="None" />           <!-- "abstract" classes should not have "public" constructors -->
+    <Rule Id="S3443" Action="None" />           <!-- Type should not be examined on "System.Type" instances -->
+    <Rule Id="S3444" Action="None" />           <!-- Interfaces should not simply inherit from base interfaces with colliding members -->
+    <Rule Id="S3445" Action="None" />           <!-- Exceptions should not be explicitly rethrown -->
+    <Rule Id="S3447" Action="None" />           <!-- "[Optional]" should not be used on "ref" or "out" parameters -->
+    <Rule Id="S3449" Action="None" />           <!-- Right operands of shift operators should be integers -->
+    <Rule Id="S3450" Action="None" />           <!-- Parameters with "[DefaultParameterValue]" attributes should also be marked "[Optional]" -->
+    <Rule Id="S3451" Action="None" />           <!-- "[DefaultValue]" should not be used when "[DefaultParameterValue]" is meant -->
+    <Rule Id="S3453" Action="None" />           <!-- Classes should not have only "private" constructors -->
+    <Rule Id="S3456" Action="None" />           <!-- "string.ToCharArray()" should not be called redundantly -->
+    <Rule Id="S3457" Action="None" />           <!-- Composite format strings should be used correctly -->
+    <Rule Id="S3458" Action="None" />           <!-- Empty "case" clauses that fall through to the "default" should be omitted -->
+    <Rule Id="S3459" Action="None" />           <!-- Unassigned members should be removed -->
+    <Rule Id="S3464" Action="None" />           <!-- Type inheritance should not be recursive -->
+    <Rule Id="S3466" Action="None" />           <!-- Optional parameters should be passed to "base" calls -->
+    <Rule Id="S3532" Action="None" />           <!-- Empty "default" clauses should be removed -->
+    <Rule Id="S3597" Action="None" />           <!-- "ServiceContract" and "OperationContract" attributes should be used together -->
+    <Rule Id="S3598" Action="None" />           <!-- One-way "OperationContract" methods should have "void" return type -->
+    <Rule Id="S3600" Action="None" />           <!-- "params" should not be introduced on overrides -->
+    <Rule Id="S3603" Action="None" />           <!-- Methods with "Pure" attribute should return a value  -->
+    <Rule Id="S3604" Action="None" />           <!-- Member initializer values should not be redundant -->
+    <Rule Id="S3610" Action="None" />           <!-- Nullable type comparison should not be redundant -->
+    <Rule Id="S3626" Action="None" />           <!-- Jump statements should not be redundant -->
+    <Rule Id="S3655" Action="None" />           <!-- Empty nullable value should not be accessed -->
+    <Rule Id="S3693" Action="None" />           <!-- Exception constructors should not throw exceptions -->
+    <Rule Id="S3717" Action="None" />           <!-- Track use of "NotImplementedException" -->
+    <Rule Id="S3776" Action="None" />           <!-- Cognitive Complexity of methods should not be too high -->
+    <Rule Id="S3869" Action="None" />           <!-- "SafeHandle.DangerousGetHandle" should not be called -->
+    <Rule Id="S3871" Action="None" />           <!-- Exception types should be "public" -->
+    <Rule Id="S3872" Action="None" />           <!-- Parameter names should not duplicate the names of their methods -->
+    <Rule Id="S3874" Action="None" />           <!-- "out" and "ref" parameters should not be used -->
+    <Rule Id="S3875" Action="None" />           <!-- "operator==" should not be overloaded on reference types -->
+    <Rule Id="S3876" Action="None" />           <!-- Strings or integral types should be used for indexers -->
+    <Rule Id="S3877" Action="None" />           <!-- Exceptions should not be thrown from unexpected methods -->
+    <Rule Id="S3880" Action="None" />           <!-- Finalizers should not be empty -->
+    <Rule Id="S3881" Action="None" />           <!-- "IDisposable" should be implemented correctly -->
+    <Rule Id="S3884" Action="None" />           <!-- "CoSetProxyBlanket" and "CoInitializeSecurity" should not be used -->
+    <Rule Id="S3885" Action="None" />           <!-- "Assembly.Load" should be used -->
+    <Rule Id="S3887" Action="None" />           <!-- Mutable, non-private fields should not be "readonly" -->
+    <Rule Id="S3889" Action="None" />           <!-- Neither "Thread.Resume" nor "Thread.Suspend" should be used -->
+    <Rule Id="S3897" Action="None" />           <!-- Classes that provide "Equals(<T>)" should implement "IEquatable<T>" -->
+    <Rule Id="S3898" Action="None" />           <!-- Value types should implement "IEquatable<T>" -->
+    <Rule Id="S3900" Action="None" />           <!-- Arguments of public methods should be validated against null -->
+    <Rule Id="S3902" Action="None" />           <!-- "Assembly.GetExecutingAssembly" should not be called -->
+    <Rule Id="S3903" Action="None" />           <!-- Types should be defined in named namespaces -->
+    <Rule Id="S3904" Action="None" />           <!-- Assemblies should have version information -->
+    <Rule Id="S3906" Action="None" />           <!-- Event Handlers should have the correct signature -->
+    <Rule Id="S3908" Action="None" />           <!-- Generic event handlers should be used -->
+    <Rule Id="S3909" Action="None" />           <!-- Collections should implement the generic interface -->
+    <Rule Id="S3923" Action="None" />           <!-- All branches in a conditional structure should not have exactly the same implementation -->
+    <Rule Id="S3925" Action="None" />           <!-- "ISerializable" should be implemented correctly -->
+    <Rule Id="S3926" Action="None" />           <!-- Deserialization methods should be provided for "OptionalField" members -->
+    <Rule Id="S3927" Action="None" />           <!-- Serialization event handlers should be implemented correctly -->
+    <Rule Id="S3928" Action="None" />           <!-- Parameter names used into ArgumentException constructors should match an existing one  -->
+    <Rule Id="S3937" Action="None" />           <!-- Number patterns should be regular -->
+    <Rule Id="S3956" Action="None" />           <!-- "Generic.List" instances should not be part of public APIs -->
+    <Rule Id="S3962" Action="None" />           <!-- "static readonly" constants should be "const" instead -->
+    <Rule Id="S3963" Action="None" />           <!-- "static" fields should be initialized inline -->
+    <Rule Id="S3966" Action="None" />           <!-- Objects should not be disposed more than once -->
+    <Rule Id="S3967" Action="None" />           <!-- Multidimensional arrays should not be used -->
+    <Rule Id="S3971" Action="None" />           <!-- "GC.SuppressFinalize" should not be called -->
+    <Rule Id="S3972" Action="None" />           <!-- Conditionals should start on new lines -->
+    <Rule Id="S3973" Action="None" />           <!-- A conditionally executed single line should be denoted by indentation -->
+    <Rule Id="S3981" Action="None" />           <!-- Collection sizes and array length comparisons should make sense -->
+    <Rule Id="S3984" Action="None" />           <!-- Exception should not be created without being thrown -->
+    <Rule Id="S3990" Action="None" />           <!-- Assemblies should be marked as CLS compliant -->
+    <Rule Id="S3992" Action="None" />           <!-- Assemblies should explicitly specify COM visibility -->
+    <Rule Id="S3993" Action="None" />           <!-- Custom attributes should be marked with "System.AttributeUsageAttribute" -->
+    <Rule Id="S3994" Action="None" />           <!-- URI Parameters should not be strings -->
+    <Rule Id="S3995" Action="None" />           <!-- URI return values should not be strings -->
+    <Rule Id="S3996" Action="None" />           <!-- URI properties should not be strings -->
+    <Rule Id="S3997" Action="None" />           <!-- String URI overloads should call "System.Uri" overloads -->
+    <Rule Id="S3998" Action="None" />           <!-- Threads should not lock on objects with weak identity -->
+    <Rule Id="S4000" Action="None" />           <!-- Pointers to unmanaged memory should not be visible -->
+    <Rule Id="S4002" Action="None" />           <!-- Disposable types should declare finalizers -->
+    <Rule Id="S4004" Action="None" />           <!-- Collection properties should be readonly -->
+    <Rule Id="S4005" Action="None" />           <!-- "System.Uri" arguments should be used instead of strings -->
+    <Rule Id="S4015" Action="None" />           <!-- Inherited member visibility should not be decreased -->
+    <Rule Id="S4016" Action="None" />           <!-- Enumeration members should not be named "Reserved" -->
+    <Rule Id="S4017" Action="None" />           <!-- Method signatures should not contain nested generic types -->
+    <Rule Id="S4018" Action="None" />           <!-- Generic methods should provide type parameters -->
+    <Rule Id="S4019" Action="None" />           <!-- Base class methods should not be hidden -->
+    <Rule Id="S4022" Action="None" />           <!-- Enumerations should have "Int32" storage -->
+    <Rule Id="S4023" Action="None" />           <!-- Interfaces should not be empty -->
+    <Rule Id="S4025" Action="None" />           <!-- Child class fields should not differ from parent class fields only by capitalization -->
+    <Rule Id="S4026" Action="None" />           <!-- Assemblies should be marked with "NeutralResourcesLanguageAttribute" -->
+    <Rule Id="S4027" Action="None" />           <!-- Exceptions should provide standard constructors -->
+    <Rule Id="S4035" Action="None" />           <!-- Classes implementing "IEquatable<T>" should be sealed -->
+    <Rule Id="S4039" Action="None" />           <!-- Interface methods should be callable by derived types -->
+    <Rule Id="S4040" Action="None" />           <!-- Strings should be normalized to uppercase -->
+    <Rule Id="S4041" Action="None" />           <!-- Type names should not match namespaces -->
+    <Rule Id="S4047" Action="None" />           <!-- Generics should be used when appropriate -->
+    <Rule Id="S4049" Action="None" />           <!-- Properties should be preferred -->
+    <Rule Id="S4050" Action="None" />           <!-- Operators should be overloaded consistently -->
+    <Rule Id="S4052" Action="None" />           <!-- Types should not extend outdated base types -->
+    <Rule Id="S4055" Action="None" />           <!-- Literals should not be passed as localized parameters -->
+    <Rule Id="S4056" Action="None" />           <!-- Overloads with a "CultureInfo" or an "IFormatProvider" parameter should be used -->
+    <Rule Id="S4057" Action="None" />           <!-- Locales should be set for data types -->
+    <Rule Id="S4058" Action="None" />           <!-- Overloads with a "StringComparison" parameter should be used -->
+    <Rule Id="S4059" Action="None" />           <!-- Property names should not match get methods -->
+    <Rule Id="S4060" Action="None" />           <!-- Non-abstract attributes should be sealed -->
+    <Rule Id="S4061" Action="None" />           <!-- "params" should be used instead of "varargs" -->
+    <Rule Id="S4069" Action="None" />           <!-- Operator overloads should have named alternatives -->
+    <Rule Id="S4070" Action="None" />           <!-- Non-flags enums should not be marked with "FlagsAttribute" -->
+    <Rule Id="S4142" Action="None" />           <!-- Duplicate values should not be passed as arguments -->
+    <Rule Id="S4143" Action="None" />           <!-- Collection elements should not be replaced unconditionally -->
+    <Rule Id="S4144" Action="None" />           <!-- Methods should not have identical implementations -->
+    <Rule Id="S4158" Action="None" />           <!-- Empty collections should not be accessed or iterated -->
+    <Rule Id="S4159" Action="None" />           <!-- Classes should implement their "ExportAttribute" interfaces -->
+    <Rule Id="S4200" Action="None" />           <!-- Native methods should be wrapped -->
+    <Rule Id="S4210" Action="None" />           <!-- Windows Forms entry points should be marked with STAThread -->
+    <Rule Id="S4211" Action="None" />           <!-- Members should not have conflicting transparency annotations -->
+    <Rule Id="S4212" Action="None" />           <!-- Serialization constructors should be secured -->
+    <Rule Id="S4214" Action="None" />           <!-- "P/Invoke" methods should not be visible -->
+    <Rule Id="S4220" Action="None" />           <!-- Events should have proper arguments -->
+    <Rule Id="S4225" Action="None" />           <!-- Extension methods should not extend "object" -->
+    <Rule Id="S4226" Action="None" />           <!-- Extensions should be in separate namespaces -->
+    <Rule Id="S4260" Action="None" />           <!-- "ConstructorArgument" parameters should exist in constructors -->
+    <Rule Id="S4261" Action="None" />           <!-- Methods should be named according to their synchronicities -->
+    <Rule Id="S4275" Action="None" />           <!-- Getters and setters should access the expected fields -->
+    <Rule Id="S4277" Action="None" />           <!-- "Shared" parts should not be created with "new" -->
+    <Rule Id="S4426" Action="None" />           <!-- Cryptographic keys should not be too short -->
+    <Rule Id="S4428" Action="None" />           <!-- "PartCreationPolicyAttribute" should be used with "ExportAttribute" -->
+    <Rule Id="S4432" Action="None" />           <!-- AES encryption algorithm should be used with secured mode -->
+    <Rule Id="S4433" Action="None" />           <!-- LDAP connections should be authenticated -->
+    <Rule Id="S4456" Action="None" />           <!-- Parameter validation in yielding methods should be wrapped -->
+    <Rule Id="S4457" Action="None" />           <!-- Parameter validation in "async"/"await" methods should be wrapped -->
+    <Rule Id="S4462" Action="None" />           <!-- Calls to "async" methods should not be blocking -->
+    <Rule Id="S4524" Action="None" />           <!-- "default" clauses should be first or last -->
+    <Rule Id="S4564" Action="None" />           <!-- ASP.NET HTTP request validation feature should not be disabled -->
+    <Rule Id="S4581" Action="None" />           <!-- "new Guid()" should not be used -->
+    <Rule Id="S4586" Action="None" />           <!-- Non-async "Task/Task<T>" methods should not return null -->
+    <Rule Id="S818" Action="None" />           <!-- Literal suffixes should be upper case -->
+    <Rule Id="S881" Action="None" />           <!-- Increment (++) and decrement (- -) operators should not be used in a method call or mixed with other operators in an expression -->
+    <Rule Id="S907" Action="None" />           <!-- "goto" statement should not be used -->
+    <Rule Id="S927" Action="None" />           <!-- parameter names should match base declaration and other partial definitions -->
+    <Rule Id="S9999-cpd" Action="None" />           <!-- Copy-paste token calculator -->
+    <Rule Id="S9999-encoding" Action="None" />           <!-- File encoding calculator -->
+    <Rule Id="S9999-metadata" Action="None" />           <!-- File metadata generator -->
+    <Rule Id="S9999-metrics" Action="None" />           <!-- Metrics calculator -->
+    <Rule Id="S9999-symbolRef" Action="None" />           <!-- Symbol reference calculator -->
+    <Rule Id="S9999-token-type" Action="None" />           <!-- Token type calculator -->
+    <Rule Id="S9999-ucfg" Action="None" />           <!-- UCFG generator. -->
+    </Rules>
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA0000" Action="None" />           <!-- Workaround incomplete diagnostics in Visual Studio 2015 Update 1 -->
+    <Rule Id="SA1000" Action="None" />           <!-- Keywords must be spaced correctly -->
+    <Rule Id="SA1001" Action="None" />           <!-- Commas must be spaced correctly -->
+    <Rule Id="SA1002" Action="None" />           <!-- Semicolons must be spaced correctly -->
+    <Rule Id="SA1003" Action="None" />           <!-- Symbols must be spaced correctly -->
+    <Rule Id="SA1004" Action="None" />           <!-- Documentation lines must begin with single space -->
+    <Rule Id="SA1005" Action="None" />           <!-- Single line comments must begin with single space -->
+    <Rule Id="SA1006" Action="None" />           <!-- Preprocessor keywords must not be preceded by space -->
+    <Rule Id="SA1007" Action="None" />           <!-- Operator keyword must be followed by space -->
+    <Rule Id="SA1008" Action="None" />           <!-- Opening parenthesis must be spaced correctly -->
+    <Rule Id="SA1009" Action="None" />           <!-- Closing parenthesis must be spaced correctly -->
+    <Rule Id="SA1010" Action="None" />           <!-- Opening square brackets must be spaced correctly -->
+    <Rule Id="SA1011" Action="None" />           <!-- Closing square brackets must be spaced correctly -->
+    <Rule Id="SA1012" Action="None" />           <!-- Opening braces must be spaced correctly -->
+    <Rule Id="SA1013" Action="None" />           <!-- Closing braces must be spaced correctly -->
+    <Rule Id="SA1014" Action="None" />           <!-- Opening generic brackets must be spaced correctly -->
+    <Rule Id="SA1015" Action="None" />           <!-- Closing generic brackets must be spaced correctly -->
+    <Rule Id="SA1016" Action="None" />           <!-- Opening attribute brackets must be spaced correctly -->
+    <Rule Id="SA1017" Action="None" />           <!-- Closing attribute brackets must be spaced correctly -->
+    <Rule Id="SA1018" Action="None" />           <!-- Nullable type symbols must be spaced correctly -->
+    <Rule Id="SA1019" Action="None" />           <!-- Member access symbols must be spaced correctly -->
+    <Rule Id="SA1020" Action="None" />           <!-- Increment decrement symbols must be spaced correctly -->
+    <Rule Id="SA1021" Action="None" />           <!-- Negative signs must be spaced correctly -->
+    <Rule Id="SA1022" Action="None" />           <!-- Positive signs must be spaced correctly -->
+    <Rule Id="SA1023" Action="None" />           <!-- Dereference and access of symbols must be spaced correctly -->
+    <Rule Id="SA1024" Action="None" />           <!-- Colons Must Be Spaced Correctly -->
+    <Rule Id="SA1025" Action="None" />           <!-- Code must not contain multiple whitespace in a row -->
+    <Rule Id="SA1026" Action="None" />           <!-- Code must not contain space after new keyword in implicitly typed array allocation -->
+    <Rule Id="SA1027" Action="None" />           <!-- Tabs must not be used -->
+    <Rule Id="SA1028" Action="None" />           <!-- Code must not contain trailing whitespace -->
+    <Rule Id="SA1100" Action="None" />           <!-- Do not prefix calls with base unless local implementation exists -->
+    <Rule Id="SA1101" Action="None" />           <!-- Prefix local calls with this -->
+    <Rule Id="SA1102" Action="None" />           <!-- Query clause must follow previous clause -->
+    <Rule Id="SA1103" Action="None" />           <!-- Query clauses must be on separate lines or all on one line -->
+    <Rule Id="SA1104" Action="None" />           <!-- Query clause must begin on new line when previous clause spans multiple lines -->
+    <Rule Id="SA1105" Action="None" />           <!-- Query clauses spanning multiple lines must begin on own line -->
+    <Rule Id="SA1106" Action="None" />           <!-- Code must not contain empty statements -->
+    <Rule Id="SA1107" Action="None" />           <!-- Code must not contain multiple statements on one line -->
+    <Rule Id="SA1108" Action="None" />           <!-- Block statements must not contain embedded comments -->
+    <Rule Id="SA1109" Action="None" />           <!-- Block statements must not contain embedded regions -->
+    <Rule Id="SA1110" Action="None" />           <!-- Opening parenthesis or bracket must be on declaration line -->
+    <Rule Id="SA1111" Action="None" />           <!-- Closing parenthesis must be on line of last parameter -->
+    <Rule Id="SA1112" Action="None" />           <!-- Closing parenthesis must be on line of opening parenthesis -->
+    <Rule Id="SA1113" Action="None" />           <!-- Comma must be on the same line as previous parameter -->
+    <Rule Id="SA1114" Action="None" />           <!-- Parameter list must follow declaration -->
+    <Rule Id="SA1115" Action="None" />           <!-- Parameter must follow comma -->
+    <Rule Id="SA1116" Action="None" />           <!-- Split parameters must start on line after declaration -->
+    <Rule Id="SA1117" Action="None" />           <!-- Parameters must be on same line or separate lines -->
+    <Rule Id="SA1118" Action="None" />           <!-- Parameter must not span multiple lines -->
+    <Rule Id="SA1119" Action="None" />           <!-- Statement must not use unnecessary parenthesis -->
+    <Rule Id="SA1119_p" Action="None" />           <!-- Statement must not use unnecessary parenthesis -->
+    <Rule Id="SA1120" Action="None" />           <!-- Comments must contain text -->
+    <Rule Id="SA1121" Action="None" />           <!-- Use built-in type alias -->
+    <Rule Id="SA1122" Action="None" />           <!-- Use string.Empty for empty strings -->
+    <Rule Id="SA1123" Action="None" />           <!-- Do not place regions within elements -->
+    <Rule Id="SA1124" Action="None" />           <!-- Do not use regions -->
+    <Rule Id="SA1125" Action="None" />           <!-- Use shorthand for nullable types -->
+    <Rule Id="SA1126" Action="None" />           <!-- Prefix calls correctly -->
+    <Rule Id="SA1127" Action="None" />           <!-- Generic type constraints must be on their own line -->
+    <Rule Id="SA1128" Action="None" />           <!-- Put constructor initializers on their own line -->
+    <Rule Id="SA1129" Action="None" />           <!-- Do not use default value type constructor -->
+    <Rule Id="SA1130" Action="None" />           <!-- Use lambda syntax -->
+    <Rule Id="SA1131" Action="None" />           <!-- Use readable conditions -->
+    <Rule Id="SA1132" Action="None" />           <!-- Do not combine fields -->
+    <Rule Id="SA1133" Action="None" />           <!-- Do not combine attributes -->
+    <Rule Id="SA1134" Action="None" />           <!-- Attributes must not share line -->
+    <Rule Id="SA1200" Action="None" />           <!-- Using directives must be placed correctly -->
+    <Rule Id="SA1201" Action="None" />           <!-- Elements must appear in the correct order -->
+    <Rule Id="SA1202" Action="None" />           <!-- Elements must be ordered by access -->
+    <Rule Id="SA1203" Action="None" />           <!-- Constants must appear before fields -->
+    <Rule Id="SA1204" Action="None" />           <!-- Static elements must appear before instance elements -->
+    <Rule Id="SA1205" Action="None" />           <!-- Partial elements must declare access -->
+    <Rule Id="SA1206" Action="None" />           <!-- Declaration keywords must follow order -->
+    <Rule Id="SA1207" Action="None" />           <!-- Protected must come before internal -->
+    <Rule Id="SA1208" Action="None" />           <!-- System using directives must be placed before other using directives -->
+    <Rule Id="SA1209" Action="None" />           <!-- Using alias directives must be placed after other using directives -->
+    <Rule Id="SA1210" Action="None" />           <!-- Using directives must be ordered alphabetically by namespace -->
+    <Rule Id="SA1211" Action="None" />           <!-- Using alias directives must be ordered alphabetically by alias name -->
+    <Rule Id="SA1212" Action="None" />           <!-- Property accessors must follow order -->
+    <Rule Id="SA1213" Action="None" />           <!-- Event accessors must follow order -->
+    <Rule Id="SA1214" Action="None" />           <!-- Readonly fields must appear before non-readonly fields -->
+    <Rule Id="SA1216" Action="None" />           <!-- Using static directives must be placed at the correct location. -->
+    <Rule Id="SA1217" Action="None" />           <!-- Using static directives must be ordered alphabetically -->
+    <Rule Id="SA1300" Action="None" />           <!-- Element must begin with upper-case letter -->
+    <Rule Id="SA1301" Action="None" />           <!-- Element must begin with lower-case letter -->
+    <Rule Id="SA1302" Action="None" />           <!-- Interface names must begin with I -->
+    <Rule Id="SA1303" Action="None" />           <!-- Const field names must begin with upper-case letter -->
+    <Rule Id="SA1304" Action="None" />           <!-- Non-private readonly fields must begin with upper-case letter -->
+    <Rule Id="SA1305" Action="None" />           <!-- Field names must not use Hungarian notation -->
+    <Rule Id="SA1306" Action="None" />           <!-- Field names must begin with lower-case letter -->
+    <Rule Id="SA1307" Action="None" />           <!-- Accessible fields must begin with upper-case letter -->
+    <Rule Id="SA1308" Action="None" />           <!-- Variable names must not be prefixed -->
+    <Rule Id="SA1309" Action="None" />           <!-- Field names must not begin with underscore -->
+    <Rule Id="SA1310" Action="None" />           <!-- Field names must not contain underscore -->
+    <Rule Id="SA1311" Action="None" />           <!-- Static readonly fields must begin with upper-case letter -->
+    <Rule Id="SA1312" Action="None" />           <!-- Variable names must begin with lower-case letter -->
+    <Rule Id="SA1313" Action="None" />           <!-- Parameter names must begin with lower-case letter -->
+    <Rule Id="SA1314" Action="None" />           <!-- The name of a C# type parameter does not begin with the capital letter T -->
+    <Rule Id="SA1400" Action="None" />           <!-- Access modifier must be declared -->
+    <Rule Id="SA1401" Action="None" />           <!-- Fields must be private -->
+    <Rule Id="SA1402" Action="None" />           <!-- File may only contain a single class -->
+    <Rule Id="SA1403" Action="None" />           <!-- File may only contain a single namespace -->
+    <Rule Id="SA1404" Action="None" />           <!-- Code analysis suppression must have justification -->
+    <Rule Id="SA1405" Action="None" />           <!-- Debug.Assert must provide message text -->
+    <Rule Id="SA1406" Action="None" />           <!-- Debug.Fail must provide message text -->
+    <Rule Id="SA1407" Action="None" />           <!-- Arithmetic expressions must declare precedence -->
+    <Rule Id="SA1408" Action="None" />           <!-- Conditional expressions must declare precedence -->
+    <Rule Id="SA1409" Action="None" />           <!-- Remove unnecessary code -->
+    <Rule Id="SA1410" Action="None" />           <!-- Remove delegate parenthesis when possible -->
+    <Rule Id="SA1411" Action="None" />           <!-- Attribute constructor must not use unnecessary parenthesis -->
+    <Rule Id="SA1412" Action="None" />           <!-- Store files as UTF-8 with byte order mark -->
+    <Rule Id="SA1500" Action="None" />           <!-- Braces for multi-line statements must not share line -->
+    <Rule Id="SA1501" Action="None" />           <!-- Statement must not be on a single line -->
+    <Rule Id="SA1502" Action="None" />           <!-- Element must not be on a single line -->
+    <Rule Id="SA1503" Action="None" />           <!-- Braces must not be omitted -->
+    <Rule Id="SA1504" Action="None" />           <!-- All accessors must be single-line or multi-line -->
+    <Rule Id="SA1505" Action="None" />           <!-- Opening braces must not be followed by blank line -->
+    <Rule Id="SA1506" Action="None" />           <!-- Element documentation headers must not be followed by blank line -->
+    <Rule Id="SA1507" Action="None" />           <!-- Code must not contain multiple blank lines in a row -->
+    <Rule Id="SA1508" Action="None" />           <!-- Closing braces must not be preceded by blank line -->
+    <Rule Id="SA1509" Action="None" />           <!-- Opening braces must not be preceded by blank line -->
+    <Rule Id="SA1510" Action="None" />           <!-- Chained statement blocks must not be preceded by blank line -->
+    <Rule Id="SA1511" Action="None" />           <!-- While-do footer must not be preceded by blank line -->
+    <Rule Id="SA1512" Action="None" />           <!-- Single-line comments must not be followed by blank line -->
+    <Rule Id="SA1513" Action="None" />           <!-- Closing brace must be followed by blank line -->
+    <Rule Id="SA1514" Action="None" />           <!-- Element documentation header must be preceded by blank line -->
+    <Rule Id="SA1515" Action="None" />           <!-- Single-line comment must be preceded by blank line -->
+    <Rule Id="SA1516" Action="None" />           <!-- Elements must be separated by blank line -->
+    <Rule Id="SA1517" Action="None" />           <!-- Code must not contain blank lines at start of file -->
+    <Rule Id="SA1518" Action="None" />           <!-- Use line endings correctly at end of file -->
+    <Rule Id="SA1519" Action="None" />           <!-- Braces must not be omitted from multi-line child statement -->
+    <Rule Id="SA1520" Action="None" />           <!-- Use braces consistently -->
+    <Rule Id="SA1600" Action="None" />           <!-- Elements must be documented -->
+    <Rule Id="SA1601" Action="None" />           <!-- Partial elements must be documented -->
+    <Rule Id="SA1602" Action="None" />           <!-- Enumeration items must be documented -->
+    <Rule Id="SA1603" Action="None" />           <!-- Documentation must contain valid XML -->
+    <Rule Id="SA1604" Action="None" />           <!-- Element documentation must have summary -->
+    <Rule Id="SA1605" Action="None" />           <!-- Partial element documentation must have summary -->
+    <Rule Id="SA1606" Action="None" />           <!-- Element documentation must have summary text -->
+    <Rule Id="SA1607" Action="None" />           <!-- Partial element documentation must have summary text -->
+    <Rule Id="SA1608" Action="None" />           <!-- Element documentation must not have default summary -->
+    <Rule Id="SA1609" Action="None" />           <!-- Property documentation must have value -->
+    <Rule Id="SA1610" Action="None" />           <!-- Property documentation must have value text -->
+    <Rule Id="SA1611" Action="None" />           <!-- Element parameters must be documented -->
+    <Rule Id="SA1612" Action="None" />           <!-- Element parameter documentation must match element parameters -->
+    <Rule Id="SA1613" Action="None" />           <!-- Element parameter documentation must declare parameter name -->
+    <Rule Id="SA1614" Action="None" />           <!-- Element parameter documentation must have text -->
+    <Rule Id="SA1615" Action="None" />           <!-- Element return value must be documented -->
+    <Rule Id="SA1616" Action="None" />           <!-- Element return value documentation must have text -->
+    <Rule Id="SA1617" Action="None" />           <!-- Void return value must not be documented -->
+    <Rule Id="SA1618" Action="None" />           <!-- Generic type parameters must be documented -->
+    <Rule Id="SA1619" Action="None" />           <!-- Generic type parameters must be documented partial class -->
+    <Rule Id="SA1620" Action="None" />           <!-- Generic type parameter documentation must match type parameters -->
+    <Rule Id="SA1621" Action="None" />           <!-- Generic type parameter documentation must declare parameter name -->
+    <Rule Id="SA1622" Action="None" />           <!-- Generic type parameter documentation must have text -->
+    <Rule Id="SA1623" Action="None" />           <!-- Property summary documentation must match accessors -->
+    <Rule Id="SA1624" Action="None" />           <!-- Property summary documentation must omit accessor with restricted access -->
+    <Rule Id="SA1625" Action="None" />           <!-- Element documentation must not be copied and pasted -->
+    <Rule Id="SA1626" Action="None" />           <!-- Single-line comments must not use documentation style slashes -->
+    <Rule Id="SA1627" Action="None" />           <!-- Documentation text must not be empty -->
+    <Rule Id="SA1628" Action="None" />           <!-- Documentation text must begin with a capital letter -->
+    <Rule Id="SA1629" Action="None" />           <!-- Documentation text must end with a period -->
+    <Rule Id="SA1630" Action="None" />           <!-- Documentation text must contain whitespace -->
+    <Rule Id="SA1631" Action="None" />           <!-- Documentation must meet character percentage -->
+    <Rule Id="SA1632" Action="None" />           <!-- Documentation text must meet minimum character length -->
+    <Rule Id="SA1633" Action="None" />           <!-- File must have header -->
+    <Rule Id="SA1634" Action="None" />           <!-- File header must show copyright -->
+    <Rule Id="SA1635" Action="None" />           <!-- File header must have copyright text -->
+    <Rule Id="SA1636" Action="None" />           <!-- File header copyright text must match -->
+    <Rule Id="SA1637" Action="None" />           <!-- File header must contain file name -->
+    <Rule Id="SA1638" Action="None" />           <!-- File header file name documentation must match file name -->
+    <Rule Id="SA1639" Action="None" />           <!-- File header must have summary -->
+    <Rule Id="SA1640" Action="None" />           <!-- File header must have valid company text -->
+    <Rule Id="SA1641" Action="None" />           <!-- File header company name text must match -->
+    <Rule Id="SA1642" Action="None" />           <!-- Constructor summary documentation must begin with standard text -->
+    <Rule Id="SA1643" Action="None" />           <!-- Destructor summary documentation must begin with standard text -->
+    <Rule Id="SA1644" Action="None" />           <!-- Documentation headers must not contain blank lines -->
+    <Rule Id="SA1645" Action="None" />           <!-- Included documentation file does not exist -->
+    <Rule Id="SA1646" Action="None" />           <!-- Included documentation XPath does not exist -->
+    <Rule Id="SA1647" Action="None" />           <!-- Include node does not contain valid file and path -->
+    <Rule Id="SA1648" Action="None" />           <!-- inheritdoc must be used with inheriting class -->
+    <Rule Id="SA1649" Action="None" />           <!-- File name must match first type name -->
+    <Rule Id="SA1650" Action="None" />           <!-- Element documentation must be spelled correctly -->
+    <Rule Id="SA1651" Action="None" />           <!-- Do not use placeholder elements -->
+    <Rule Id="SA1652" Action="None" />           <!-- Enable XML documentation output -->
+    <Rule Id="SX1101" Action="None" />           <!-- Do not prefix local calls with 'this.' -->
+    <Rule Id="SX1309" Action="None" />           <!-- Field names must begin with underscore -->
+    <Rule Id="SX1309S" Action="None" />           <!-- Static field names must begin with underscore -->
+  </Rules>
+</RuleSet>

@@ -1,0 +1,1591 @@
+﻿@model IEnumerable<AMiON.Helper.AssignmentDetails>
+@{
+    ViewBag.Title = "Shifts Tab";
+    int i = 1;
+    var ShowCharLength = ViewBag.ShowCharLength ?? 20;
+    bool IsCharLengthExceed(string content) => content?.Length > ShowCharLength ?? false;
+}
+
+
+<style>
+
+    .citeCustom {
+        color: rgba(37,36,36,0.75);
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: normal !important;
+    }
+
+    .rowCustom {
+        margin: 7px 12px !important;
+    }
+
+    .dropdown-menu li:hover {
+        cursor: pointer;
+        background: #F4F4F4;
+    }
+
+    .navbar {
+        margin-bottom: 0px !important;
+        min-height: 40px
+    }
+
+    .ImportShiftDiv {
+        font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+    }
+
+    .CustomImportButton {
+        border: none;
+        background: inherit;
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        color: #252423;
+        font-family: "Segoe UI Bold",Helvetica,Arial,sans-serif !important;
+        font-size: 14px;
+        padding-left: 0px;
+        cursor: pointer;
+    }
+
+    #SpanDepartment {
+        font-size: 14px !important;
+    }
+
+    .divDatePicker:focus, .CustomImportButton:focus {
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        color: #6264A7;
+    }
+
+    .divDatePicker:hover, .CustomImportButton:hover {
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-radius: 0;
+        color: #6264A7;
+    }
+
+        .divDatePicker:hover > .txtDatetimePicker {
+            outline: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-radius: 0;
+            color: #6264A7;
+        }
+
+    .SelDepartmentOption {
+        height: 200px;
+        overflow-y: auto;
+    }
+
+    .txtDatetimePicker {
+        cursor: pointer;
+        background: inherit;
+        font-size: 17px;
+        border: none;
+        -webkit-box-shadow: none;
+        float: left;
+        box-shadow: none;
+        border-radius: 0;
+        color: #252423;
+        font-family: inherit;
+        font-size: 14px;
+    }
+
+
+    .SelectDepartment {
+        cursor: pointer;
+    }
+
+        .SelectDepartment label {
+            font-weight: normal !important;
+            font-size: 13px !important;
+            padding-left: 5px;
+        }
+
+    .ShiftInActive {
+        background: #F9F8F7;
+    }
+
+        .ShiftInActive td {
+            color: #979593 !important;
+            font-size: 14px;
+        }
+
+    .ShiftActive {
+        background: #FFFFFF
+    }
+
+        .ShiftActive td {
+            color: #484644;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+
+
+    .highlightContent {
+        color: #9697c4 !important;
+        cursor: pointer;
+    }
+
+    .ShiftInActive > td > .highlightContent {
+        color: inherit !important;
+        cursor: pointer;
+    }
+
+    #AmionShiftDetailsTable {
+        margin-bottom: 0px !important;
+    }
+
+        #AmionShiftDetailsTable thead tr th {
+            border-bottom: none !important;
+        }
+
+        #AmionShiftDetailsTable tr td {
+            height: 48px;
+            vertical-align: middle;
+        }
+
+        #AmionShiftDetailsTable tbody tr td {
+            color: #252423;
+            border-top: 1px solid #F3F2F1 !important;
+        }
+
+            #AmionShiftDetailsTable thead tr th:first-child, #AmionShiftDetailsTable tbody tr td:first-child {
+                padding-left: 20px !important;
+            }
+
+            #AmionShiftDetailsTable tbody tr td span {
+                overflow-wrap: break-word;
+            }
+
+    .HightlightedEditColumn {
+        background: #e2e2f6 !important;
+    }
+</style>
+
+<style>
+
+    .customGlyphicon {
+        position: relative;
+        display: inline-block;
+        font-family: "TeamsAssets-Light" !important;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: inherit;
+        font-size: 14px;
+        top: 1px;
+    }
+
+    .chevronIcon::before {
+        content: "\e44b";
+    }
+
+    .ellipsesIcon::before {
+        content: "\e94f";
+    }
+
+    .teamsChatIcon::before {
+        content: "\e300";
+    }
+
+    .editIcon::before {
+        content: "\E40d";
+    }
+
+    .helpIcon::before {
+        content: "\e62c";
+    }
+
+    .searchIcon::before {
+        content: "\E446";
+    }
+
+    .crossIcon::before {
+        content: "\E413";
+    }
+
+    .addIcon::before {
+        content: "\E415";
+    }
+
+    .HightlightedEditColumn > .copySelectionIcon::before {
+        content: "\E14d";
+    }
+
+    .HightlightedEditColumn > .copySelectionIcon {
+        font-size: 21px !important;
+        top: 0px;
+        font-weight: 100 !important;
+        margin-left: 0px !important;
+    }
+
+    .smallNextArrow {
+        content: "\e44c";
+    }
+
+    .smallPrevArrow {
+        content: "\e44d";
+    }
+
+    i.icon.search:before {
+        content: "\E446" !important;
+    }
+
+    .ui.icon.input > i.icon {
+        font-family: "TeamsAssets-Light" !important;
+    }
+</style>
+
+<!--DatePicker-->
+<style>
+
+    .datepicker {
+        font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif !important;
+        font-weight: normal;
+        font-size: 14px;
+        background-color: #F3F2F1;
+        border: 1px solid rgb(200, 200, 200);
+        border-radius: 3px;
+        box-shadow: none;
+    }
+
+        .datepicker > .datepicker_inner_container {
+            margin: -2px 0px -2px 0px;
+            background-color: #F3F2F1;
+            border: 0px solid #c8c8c8;
+            border-radius: 0px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            border-top: 1px solid #c8c8c8 !important;
+            margin: 0px !important;
+        }
+
+    .monthNav {
+        float: right;
+        vertical-align: initial;
+        padding: 5px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+        .monthNav > a {
+            cursor: pointer;
+            padding-left: 6px;
+        }
+
+            .monthNav > a:hover {
+                color: #6264A7;
+            }
+
+    .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td {
+        padding: 6.5px !important;
+        font-weight: 600;
+        color: #a4a4a4;
+    }
+
+    .datepicker > .datepicker_inner_container > .datepicker_calendar {
+        width: 14.31em !important;
+        margin-top: 0px !important;
+        margin-bottom: -1px !important;
+    }
+
+    .datepicker_table tr th {
+        padding-left: 8px !important;
+        font-weight: 600;
+        font-size: 13px;
+        font-weight: 600;
+        color: #a4a4a4;
+    }
+
+    .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.active {
+        background-color: #6264A7;
+    }
+
+
+    .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.hover {
+        background-color: #9697c4 !important;
+        color: #ffffff !important;
+    }
+
+    .datepicker > .datepicker_inner_container > .datepicker_timelist > div.timelist_item {
+        text-align: center;
+        text-align: -webkit-center;
+        font-weight: 600;
+        color: #a4a4a4;
+    }
+
+        .datepicker > .datepicker_inner_container > .datepicker_timelist > div.timelist_item.hover {
+            color: #ffffff !important;
+            background-color: #9697c4 !important;
+        }
+
+
+
+        .datepicker > .datepicker_inner_container > .datepicker_timelist > div.timelist_item.active {
+            background-color: #6264A7 !important;
+        }
+
+    .datepicker_header > span {
+        vertical-align: initial;
+        padding: 5px;
+        font-size: 14px;
+        color: #252423;
+        font-weight: bold;
+    }
+
+    .datepicker > .datepicker_header > a {
+        color: gray;
+    }
+
+    .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.wday_sat, .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.wday_sun {
+        color: #a4a4a4;
+    }
+
+    .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.day_another_month {
+        font-weight: 400;
+    }
+
+        .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.day_another_month.wday_sat, .datepicker > .datepicker_inner_container > .datepicker_calendar > .datepicker_table > tbody > tr > td.day_another_month.wday_sun {
+            color: #cccccc;
+        }
+
+
+
+    .datepicker > .datepicker_header > a:hover {
+        background-color: #6264A7 !important;
+    }
+
+    .datepicker_header {
+        background-color: #FFFFFF !important;
+    }
+
+    .datepicker > .datepicker_header > span {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        user-select: none;
+        float: left;
+    }
+
+    .datepicker > .datepicker_header > a {
+        padding: 5px !important;
+        font-size: initial !important;
+    }
+
+    .datepicker > .datepicker_header {
+        padding: 2px;
+    }
+</style>
+
+<!--toggle-->
+<style>
+
+    /*Switch*/
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #FFFFFF;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border: 1px solid gray;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 1px;
+            bottom: 1px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border: 1px solid gray;
+        }
+
+    input:checked + .slider {
+        background-color: #6264A7;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #6264A7;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(21px);
+        -ms-transform: translateX(21px);
+        transform: translateX(21px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    /*switch*/
+
+</style>
+
+<!--table sorter-->
+<style>
+
+    table.tablesorter {
+    }
+
+        table.tablesorter tbody tr {
+            animation-name: tablesorter-anim;
+            animation-duration: 0.15s;
+        }
+
+    th.tablesorter-header {
+        cursor: pointer;
+    }
+
+    th.tablesorter-sorting {
+        cursor: wait;
+    }
+
+    th.tablesorter-unsorted:before {
+        content: "" !important;
+    }
+
+    th.tablesorter-desc:after {
+        content: "\e44b";
+        color: rgba(37,36,36,0.75);
+        font-weight: bold;
+        vertical-align: sub;
+        font-family: "TeamsAssets-Light" !important;
+    }
+
+    th.tablesorter-desc:before {
+        content: "" !important;
+    }
+
+    th.tablesorter-asc:after {
+        content: "\e44e";
+        color: rgba(37,36,36,0.75);
+        font-weight: bold;
+        vertical-align: sub;
+        font-family: "TeamsAssets-Light" !important;
+    }
+
+    th.tablesorter-asc:before {
+        content: "" !important;
+    }
+
+    .table_head_font {
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(37,36,36,0.75);
+    }
+</style>
+
+<!--Edit column-->
+<style>
+
+    .ulcustom {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        padding: 4px;
+    }
+
+    .EditColumnIcon {
+        float: right;
+        margin: 10px;
+        margin-top: 6px;
+        cursor: pointer;
+        color: inherit;
+    }
+
+    .btnEditColumnIcon {
+        font-size: x-small;
+        font-weight: 400;
+        float: right;
+        left: 7px;
+        color: lightslategrey;
+        cursor: pointer;
+        top: 6px;
+    }
+
+    .btnEditColumn {
+        background-color: #f4f4f4;
+        border: none;
+        color: black;
+        padding: 5px 11px 5px 0px;
+        font-size: 14px;
+        cursor: pointer;
+        float: left;
+        margin-right: 8px;
+        font-weight: 500 !important;
+        cursor: crosshair;
+        cursor: move;
+        text-decoration: none !important;
+        margin-bottom: 4px !important;
+        font-family: "Segoe UI Semibold",Helvetica,Arial,sans-serif;
+    }
+
+        .btnEditColumn:hover {
+            color: black !important;
+        }
+
+
+        .btnEditColumn i {
+            line-height: 16px;
+            font-weight: 500;
+            color: #656464;
+            bottom: 0px;
+            vertical-align: bottom;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 15px;
+            font-style: normal;
+            top: 0px;
+        }
+
+    .EditColumnClose {
+        font-weight: normal;
+        cursor: pointer;
+    }
+
+    .one-edge-shadow {
+        -webkit-box-shadow: 0 8px 6px -6px gray;
+        -moz-box-shadow: 0 8px 6px -6px gray;
+        box-shadow: 0 8px 6px -6px gray;
+    }
+
+    .EditColumnIcon {
+        float: right;
+        margin: 10px;
+        margin-top: 6px;
+        cursor: pointer;
+        color: inherit;
+    }
+
+    .btnEditColumn > .addIcon {
+        font-size: 14px;
+        top: 3px;
+        vertical-align: top;
+    }
+</style>
+
+<style>
+
+    .padding5px {
+        padding: 5px 5px;
+    }
+
+    .InputSearchShiftDetails {
+        width: 11em;
+        height: 32px;
+        background: #E8E7E6 !important;
+        border: none !important;
+    }
+
+    .ShowSwitchIfToday {
+        margin-right: 13px;
+        margin-top: 6px;
+        float: right
+    }
+
+        .ShowSwitchIfToday span {
+            color: #484644;
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+    .btnEditColumnSave {
+        box-shadow: 0 2px 4px -0.75px rgba(0,0,0,0.25);
+        min-width: 90px;
+    }
+</style>
+
+<!--Tooltip-->
+<style>
+
+    .tooltip.tooltip.bottom .tooltip-arrow,
+    .tooltip.tooltip.bottom-left .tooltip-arrow,
+    .tooltip.tooltip.bottom-right .tooltip-arrow {
+        border-bottom-color: #7070a2;
+    }
+
+    .tooltip.top .tooltip-arrow {
+        border-top-color: #7070a2;
+    }
+
+    .tooltip.left .tooltip-arrow {
+        border-left-color: #7070a2;
+    }
+
+    .tooltip.right .tooltip-arrow {
+        border-right-color: #7070a2;
+    }
+
+    .tooltip > .tooltip-inner {
+        background-color: #7070a2;
+        color: white
+    }
+</style>
+
+<style>
+
+    .styled-checkbox {
+        cursor: pointer;
+        width: 100%;
+    }
+
+        .styled-checkbox::before {
+            content: " ";
+            background-image: url("../../Content/images/CheckboxUnchecked.svg");
+            background-repeat: no-repeat;
+            padding-left: 25px;
+        }
+
+    input[type=checkbox]:checked + .styled-checkbox::before {
+        content: " ";
+        background-image: url("../../Content/images/CheckboxChecked.svg");
+    }
+</style>
+<style>
+
+    #MainErrorMessage {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: bold;
+        padding-top: 24px;
+        text-align: center;
+    }
+
+    #SubErrorMessage {
+        font-family: inherit;
+        text-align: center;
+        font-size: 14px;
+    }
+</style>
+
+<div class="ImportShiftDiv" style="font-family:'Segoe UI Semilight',Helvetica,Arial,sans-serif;background:#F3F2F1;height: 100%;">
+    <div class="ui small icon input pull-right" id="DivShiftSearch" style="width:50%; cursor:pointer; position:fixed;">
+        <input type="text" class="InputSearchShiftDetails" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeyup="OnKeyUpSearchShiftDetails(this)" onblur="OnblurSearchShiftBlur(this)" placeholder="Find...">
+        <i class="search icon "></i>
+    </div>
+    <div class="navbar" id="MainNavBar">
+        <div class="pull-left" id="MainLeftDiv">
+            <div class="btn-group pull-left" style="@(ViewBag.DepartmentListCount == 0 ? "display:none":"");">
+                <button class="btn CustomImportButton" type="button" data-toggle="dropdown" title="Filter groups">
+                    <span id="SpanDepartment">All groups</span>
+                    <span class="customGlyphicon chevronIcon"></span>
+                </button>
+                <ul class="dropdown-menu SelDepartmentOption col-md-6" style="min-width: 219px; ">
+                    <li class="SelectDepartment padding5px" onclick="OnClickSelectDepartment(this,event)">
+                        <input id="chkAllGroups" class="hidden" type="checkbox">
+                        <label class="styled-checkbox" for="chkAllGroups">All groups</label>
+                    </li>
+                    @foreach (var Department in ViewBag.DepartmentList)
+                    {
+                        <li class="SelectDepartment padding5px" onclick="OnClickSelectDepartment(this,event)">
+                            <input id="chkAllGroups-@(i)" class="hidden" type="checkbox">
+                            <label class="styled-checkbox " for="chkAllGroups-@(i++)">@Department</label>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="pull-left divDatePicker">
+                <input type="text" id="datetimepicker" class="CustomImportButton txtDatetimePicker btn" readonly="readonly" title="Select a date" style="padding: 6px 0px;background:#F3F2F1;">
+                <span class="customGlyphicon chevronIcon datetimePickerIcon" style="vertical-align: bottom; top: 4px; cursor:pointer" onclick="onclickOpenCalender()"></span>
+            </div>
+        </div>
+        <div class="pull-right" style=" width:30px">
+            <a class="EditColumnIcon" data-toggle="dropdown"><i class="customGlyphicon ellipsesIcon"></i></a>
+            <ul class="dropdown-menu" style="width: 15em;right: 0; left:auto">
+                <li class="padding5px" onclick="onClickShowEditColumnModel()">
+                    <div>
+                        <label>
+                            <a style="padding-left:6px; padding-right:6px" class="customGlyphicon editIcon"></a> <span style="cursor:pointer; font-weight:normal; ">Reorder columns</span>
+                        </label>
+                    </div>
+                </li>
+                <li class="padding5px">
+                    <div href="javascript:void(0)" onclick="window.open('https://www.amion.com/Help.shtml', 'AMiON Help', 'width=750, height=500'); return false;">
+                        <label>
+                            <a style="padding-left:6px; padding-right:6px" class="customGlyphicon helpIcon"></a>
+                            <span style="cursor:pointer;font-weight:normal">Help</span>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class=" pull-right" id="MainRightDiv">
+            @*<div class=" pull-right" style="margin-right: 5px;margin-top: 6px; cursor:pointer">
+                    <span class="customGlyphicon searchIcon" id="ShiftSearchIcon" onclick="ShowDivShiftSearch()" />
+                </div>*@
+
+            <div style="" class="ShowSwitchIfToday">
+                <label class="switch">
+                    <input type="checkbox" class="chkInactiveStatus" onclick="OnclickShowHideInactiveShiftDetails(this)">
+                    <span class="slider round"></span>
+                </label>
+                <span>Include off-duty</span>
+            </div>
+        </div>
+
+        <input type="hidden" value="@ViewBag.EditColumns" id="hdnEditColumns" />
+    </div>
+    <div id="divEditColumnModel" style="width: 100%;
+    background: white;
+    position: absolute;z-index: 1; display:none;" class="one-edge-shadow">
+        <div class="row rowCustom">
+            <label class="pull-left" style="font-family:'Segoe UI Bold',Helvetica,Arial,sans-serif; font-weight:normal">Reorder columns</label>
+            <i title="Close" class="pull-right EditColumnClose customGlyphicon crossIcon" onclick="onClickHideEditColumnModel()"></i>
+        </div>
+        <div class="row rowCustom">
+            <ul id="ulEditShiftColumnList" class="ulcustom "></ul>
+        </div>
+        <div class="row rowCustom" id="divAddColumn" style="display:none">
+            <label style="float: left;margin-top: 10px;font-size: 18px;color: rgba(37,36,36,0.75); font-weight:normal" class="customGlyphicon addIcon"></label>
+            <ul id="ulRemovedShiftColumns" class="ulcustom"></ul>
+        </div>
+        <div class="row rowCustom">
+            <label style="float:left"><cite class="citeCustom">Drag column names to change order.</cite></label>
+            <button type="button" class="btn btn-primary btnEditColumnSave pull-right" onclick="OnClickSaveEditedColumns()">Reorder</button>
+        </div>
+
+    </div>
+    <div id="ChildMainDiv" style=" display:none" class="navbar">
+        <div class="ShowSwitchIfToday pull-left">
+            <label class="switch">
+                <input type="checkbox" class="chkInactiveStatus" onclick="OnclickShowHideInactiveShiftDetails(this)">
+                <span class="slider round"></span>
+            </label>
+            <span>Include off-duty</span>
+        </div>
+        <div class="ui small icon input pull-right">
+            <input type="text" class="InputSearchShiftDetails" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeyup="OnKeyUpSearchShiftDetails(this)" onblur="OnblurSearchShiftBlur(this)" placeholder="Find...">
+            <i class="search icon"></i>
+        </div>
+    </div>
+    <div>
+        <div style="background:white;overflow-x:auto">
+            <table id="AmionShiftDetailsTable" class="table table-responsive  tablesorter">
+                <thead>
+                    <tr>
+                        @foreach (var columnName in ViewBag.orderedColumns)
+                        {
+
+                            if (columnName == "Division")
+                            {
+                                <th class="table_head_font">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                            if (columnName == "Role")
+                            {
+                                <th class="table_head_font" style="max-width:240px;">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                            if (columnName == "Name")
+                            {
+                                <th class="table_head_font">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+
+                            if (columnName == "Training")
+                            {
+                                <th class="table_head_font">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                            if (columnName == "Shift Time")
+                            {
+                                <th class="table_head_font" style="min-width:90px;" data-tablesorter="false">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                            if (columnName == "Pager")
+                            {
+                                <th class="table_head_font text-center" data-tablesorter="false">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                            if (columnName == "Contact No")
+                            {
+                                <th class="table_head_font text-center" style="min-width:150px; " data-tablesorter="false">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                            if (columnName == "Action")
+                            {
+                                <th class="table_head_font text-center" data-tablesorter="false">@ViewBag.ColumnConfig[columnName]</th>
+                            }
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var shift in Model)
+                    {
+                        string search = string.Empty;
+                        foreach (var colName in ViewBag.orderedColumns)
+                        {
+                            if (colName == "Division")
+                            {
+                                search += shift.Division?.ToString().ToLower() ?? string.Empty;
+                            }
+                            if (colName == "Role")
+                            {
+                                search += shift.Role?.ToString().ToLower() ?? string.Empty;
+                            }
+                            if (colName == "Name")
+                            {
+                                search += shift.Name?.ToString().ToLower() ?? string.Empty;
+                            }
+
+                            if (colName == "Training")
+                            {
+                                search += shift.Training?.ToString().ToLower() ?? string.Empty;
+                            }
+                            if (colName == "Shift Time")
+                            {
+                                search += shift.ShiftTime?.ToString().ToLower() ?? string.Empty;
+                            }
+                            if (colName == "Pager")
+                            {
+                                search += shift.Pager?.ToString().ToLower() ?? string.Empty;
+                            }
+                            if (colName == "Contact No")
+                            {
+                                search += shift.Contact?.ToString().ToLower() ?? string.Empty;
+                            }
+                        }
+
+                        <tr Search="@(search)" ShiftStart="@shift.ShiftStart" ShiftEnd="@shift.ShiftEnd" Division="@shift.Division">
+
+                            @foreach (var columnName in ViewBag.orderedColumns)
+                            {
+
+                                if (columnName == "Division")
+                                {
+                                    <td>
+                                        @if (IsCharLengthExceed(shift.Division))
+                                        {
+                                            <span style="cursor:pointer" title="@shift.Division" data-toggle="tooltip"> @shift.Division.Substring(0, ShowCharLength)...</span>
+                                        }
+                                        else
+                                        {
+                                            <span> @(shift.Division)</span>
+                                        }
+                                    </td>
+                                }
+                                if (columnName == "Role")
+                                {
+                                    <td>
+                                        @if (IsCharLengthExceed(shift.Role))
+                                        {
+                                            <span style="cursor:pointer" title="@shift.Role" data-toggle="tooltip"> @shift.Role.Substring(0, ShowCharLength)...</span>
+                                        }
+                                        else
+                                        {
+                                            <span> @(shift.Role)</span>
+                                        }
+                                    </td>
+                                }
+                                if (columnName == "Name")
+                                {
+                                    <td>
+                                        @if (IsCharLengthExceed(shift.Name))
+                                        {
+                                            <span style="cursor:pointer" title="@shift.Name" data-toggle="tooltip"> @shift.Name.Substring(0, ShowCharLength)...</span>
+                                        }
+                                        else
+                                        {
+                                            <span> @(shift.Name)</span>
+                                        }
+                                    </td>
+                                }
+
+                                if (columnName == "Training")
+                                {
+                                    <td>
+                                        @if (IsCharLengthExceed(shift.Training))
+                                        {
+                                            <span title="@shift.Training" data-toggle="tooltip"> @shift.Training.Substring(0, ShowCharLength)...</span>
+                                        }
+                                        else
+                                        {
+                                            <span> @(shift.Training)</span>
+                                        }
+                                    </td>
+                                }
+                                if (columnName == "Shift Time")
+                                {
+                                    <td><span>@shift.ShiftTime</span></td>
+                                }
+                                if (columnName == "Pager")
+                                {
+                                    <td class="text-center">
+                                        @if (!string.IsNullOrWhiteSpace(shift.Pager) && shift.Pager != "0")
+                                        {
+                                            <span class="highlightContent" title="Page this person" data-toggle="tooltip" onclick="onClickOpenChatWindow('@shift.Division','@shift.StaffBackupID')">@shift.Pager</span>
+                                        }
+                                    </td>
+                                }
+                                if (columnName == "Contact No")
+                                {
+                                    <td class="text-center">
+                                        <span class="highlightContent" title="Click to copy" data-toggle="tooltip" onmouseout="OnmouseoutChangeTitle(this,'Click to copy')" onclick="onclickCopyToClipboard(this,'@shift.Contact')">@shift.Contact</span>
+                                        @*<a href="TEL:@shift.Contact">@shift.Contact</a>*@
+                                        @*<span class="highlightContent" title="Click to copy" data-toggle="tooltip" onmouseout="OnmouseoutChangeTitle(this,'Click to copy')" onclick="onclickCopyToClipboard(this,'@shift.Contact')">@shift.Contact</span>*@<span class="highlightContent" title="Click to copy" data-toggle="tooltip" onmouseout="OnmouseoutChangeTitle(this,'Click to copy')" onclick="onclickCopyToClipboard(this,'@shift.Contact')"></span>
+
+                                    </td>
+                                }
+                                if (columnName == "Action")
+                                {
+                                    <td class="text-center">
+                                        @if (!string.IsNullOrWhiteSpace(shift.EMailId))
+                                        {
+                                            <i title="Teams chat" onclick="onclickOpenChat('https://teams.microsoft.com/l/chat/0/0?users=@shift.EMailId')" class="customGlyphicon teamsChatIcon highlightContent"></i>
+                                            @*<a href="https://teams.microsoft.com/l/chat/0/0?users=@shift.EMailId" target="_blank"></a>*@
+                                        }
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="ShiftStatusMessage" style="margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); display:none">
+        <div>
+            <div>
+                <img src="~/Content/images/SomethingWentWrong.svg" style="width:214px; height:214px" />
+            </div>
+            <br />
+            <div class="text-center">
+                <span id="MainErrorMessage"></span>
+            </div>
+            <div class="text-center">
+                <span id="SubErrorMessage"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="font-family:'Segoe UI Bold',Helvetica,Arial,sans-serif;background:#F3F2F1;visibility:hidden"><button id="datePickerWidthCalc" class="CustomImportButton txtDatetimePicker btn" style="font-family:'Segoe UI Bold',Helvetica,Arial,sans-serif;"></button></div>
+<div class="ui large modal">
+    <div class="header">Header</div>
+    <div class=" content">
+        <iframe src="https://www.amion.com/cgi-bin/ocs?Lo=site neur&Page=Alphapg&Rsel=136&secure"></iframe>
+    </div>
+</div>
+@Scripts.Render("~/bundles/jqueryval")
+<script src="https://unpkg.com/@Html.Raw("@")microsoft/teams-js@1.4.2/dist/MicrosoftTeams.min.js" integrity="sha384-DcoNUuQTjpW5Sw3msonn/2ojgtNvtC5fCGd5U9RUpL3g1hla1LzHz8I9YIYSXe6q" crossorigin="anonymous"></script>
+
+<script>
+    microsoftTeams.initialize();
+    let internalTeamId = "";
+    let channelId = "";
+    let userId = "";
+    let tenantId = "";
+    let filePath = "";
+    let DivShiftSearch = $("#DivShiftSearch").width();
+
+    microsoftTeams.getContext(function (context) {
+        internalTeamId = context.teamId;
+        channelId = context.channelId;
+        userId = context.userObjectId;
+        tenantId = context.tid;
+    });
+
+
+
+    //begin:- Decalare Global Variables
+    let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    let month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let DefaultEditShiftColumnNames = ["Division", "Name", "Role", "Shift Time", "Pager", "Contact No", "Action"];
+
+    let $AmionShiftDetailsTableAllBodyTr = $("#AmionShiftDetailsTable > tbody > tr");
+
+    let QueryString = (function () {
+        var params = window.location.search.replace("?&", "?");
+        params = "{\"" +
+            params
+                .replace(/\?/gi, "")
+                .replace(/\&/gi, "\",\"")
+                .replace(/\=/gi, "\":\"") +
+            "\"}";
+        return JSON.parse(params);
+    })();
+
+
+    let IsTodayDate = (function () {
+        if (QueryString.selDate !== undefined) {
+            var date = moment(QueryString.selDate, "YYYY-MM-DD").toDate();
+            return (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth() && date.getDate() === new Date().getDate());
+        }
+        return true;
+    })();
+
+    let EditColumnsJSON = (function () { return JSON.parse($("#hdnEditColumns").val()) })();
+    //End:- Decalare Global Variables
+
+    function SearchFilterDetails(searchWord) {
+        let showInactiveStatus = $(".chkInactiveStatus").eq(0).is(":checked");
+
+        if (searchWord !== undefined && searchWord !== null && searchWord.length > 0) {
+            $.each($AmionShiftDetailsTableAllBodyTr, function (index, $tr) {
+                let shiftContent = $($tr).attr("Search");
+                if (shiftContent.indexOf(searchWord) > -1)
+                    $($tr).addClass("FoundSearch");
+                else
+                    $($tr).removeClass("FoundSearch");
+            });
+
+            if (showInactiveStatus) {
+                $(".ShowDepartment").hide();
+                $(".ShowDepartment.FoundSearch").show();
+            }
+            else {
+                $(".ShiftActive.ShowDepartment").hide();
+                $(".ShiftActive.ShowDepartment.FoundSearch").show();
+            }
+        }
+        else {
+            $($AmionShiftDetailsTableAllBodyTr).removeClass("FoundSearch");
+            if (showInactiveStatus) {
+                $(".ShowDepartment").show();
+            }
+            else {
+                $(".ShiftActive.ShowDepartment").show();
+            }
+        }
+    }
+
+    function HighlightInActiveShiftHelper(currentTime) {
+        $.each($AmionShiftDetailsTableAllBodyTr, function (index, $tr) {
+            let $TableTr = $($tr);
+            let ShiftStart = parseInt($TableTr.attr("ShiftStart"));
+            let ShiftEnd = parseInt($TableTr.attr("ShiftEnd"));
+            if ((ShiftStart < ShiftEnd && ShiftStart <= currentTime && currentTime <= ShiftEnd) || (ShiftStart > ShiftEnd && ShiftStart <= currentTime) || (ShiftStart === ShiftEnd))
+                $TableTr.removeClass("ShiftInActive").removeClass("ShiftActive").addClass("ShiftActive");
+            else
+                $TableTr.removeClass("ShiftActive").removeClass("ShiftInActive").addClass("ShiftInActive");
+        });
+    }
+
+    function ShowHideInactiveShiftDetails(showInactiveStatus) {
+        $(".ShowDepartment").show();
+        $(".chkInactiveStatus").prop("checked", showInactiveStatus);
+        if (showInactiveStatus)
+            $(".ShiftInActive.ShowDepartment").show();
+        else
+            $(".ShiftInActive.ShowDepartment").hide();
+    }
+
+    function LoadEditColumnDetails() {
+        $("#ulEditShiftColumnList").html('');
+        $("#ulRemovedShiftColumns").html('');
+        if (EditColumnsJSON !== null) {
+            if (EditColumnsJSON.UpdatedOrderShiftColumnNames !== undefined && Array.isArray(EditColumnsJSON.UpdatedOrderShiftColumnNames) && EditColumnsJSON.UpdatedOrderShiftColumnNames.length > 0) {
+                $.each(EditColumnsJSON.UpdatedOrderShiftColumnNames, function (index, colName) {
+
+                    if (EditColumnsJSON.IsAdmin !== undefined && EditColumnsJSON.IsAdmin === true)
+                        $("#ulEditShiftColumnList").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn"><i class="customGlyphicon copySelectionIcon"/>' + colName + '<i title="Remove column" class="customGlyphicon crossIcon" onclick="RemoveEditColumn(this,\'' + colName + '\')"></i></a></li>');
+                    else
+                        $("#ulEditShiftColumnList").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn"><i class="customGlyphicon copySelectionIcon"/>' + colName + '</a></li>');
+                });
+            }
+            if (EditColumnsJSON.IsAdmin !== undefined && EditColumnsJSON.IsAdmin === true) {
+                if (EditColumnsJSON.RemovedShiftColumnNames !== undefined && Array.isArray(EditColumnsJSON.RemovedShiftColumnNames) && EditColumnsJSON.RemovedShiftColumnNames.length > 0) {
+                    $("#divAddColumn").show();
+                    $.each(EditColumnsJSON.RemovedShiftColumnNames, function (index, colName) {
+                        if (EditColumnsJSON.IsAdmin !== undefined && EditColumnsJSON.IsAdmin === true)
+                            $("#ulRemovedShiftColumns").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn" style="padding-left:9px">' + colName + '<i  title="add column" class="customGlyphicon addIcon"  onclick="AddEditColumn(this,\'' + colName + '\')"></i></a></li>');
+                        else
+                            $("#ulRemovedShiftColumns").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn" style="padding-left:9px">' + colName + '</a></li>');
+                    });
+                }
+                else {
+                    $("#divAddColumn").hide();
+                }
+            }
+        }
+    }
+
+    function RemoveEditColumn($this, colName) {
+        if (EditColumnsJSON.IsAdmin !== undefined && EditColumnsJSON.IsAdmin === true)
+            $("#ulRemovedShiftColumns").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn" style="padding-left:9px">' + colName + '<i title="add column" class="customGlyphicon addIcon" onclick="AddEditColumn(this,\'' + colName + '\')"></i></a></li>');
+        else
+            $("#ulRemovedShiftColumns").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn" style="padding-left:9px">' + colName + '</a></li>');
+        $($this).closest("li").remove();
+        if ($("#ulRemovedShiftColumns li").length === 0)
+            $("#divAddColumn").hide();
+        else
+            $("#divAddColumn").show();
+    }
+
+    function AddEditColumn($this, colName) {
+        if (EditColumnsJSON.IsAdmin !== undefined && EditColumnsJSON.IsAdmin === true)
+            $("#ulEditShiftColumnList").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn"><i class="customGlyphicon copySelectionIcon"/>' + colName + '<i title="Remove column" class="customGlyphicon crossIcon" onclick="RemoveEditColumn(this,\'' + colName + '\')"></i></a></li>');
+        else
+            $("#ulEditShiftColumnList").append('<li ColumnName="' + (colName) + '"><a class="btnEditColumn"><i class="customGlyphicon copySelectionIcon"/>' + colName + '</a></li>');
+        $($this).closest("li").remove();
+        if ($("#ulRemovedShiftColumns li").length === 0)
+            $("#divAddColumn").hide();
+    }
+
+    function GetUnique(array) {
+        var uniqueArray = [];
+        // Loop through array values
+        //  for (var value of array)
+        $.each(array, function (index, value) {
+            if (uniqueArray.indexOf(value) === -1)
+                uniqueArray.push(value);
+        });
+        return uniqueArray;
+    }
+
+    function formatAMPM(date) {
+        let hours = date.getHours();
+        let ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        var strTime = hours + ampm;
+        return strTime;
+    }
+
+    function SetDatePickerDate(selDate) {
+        $('#datetimepicker').handleDtpicker('setDate', new Date(selDate.getFullYear(), selDate.getMonth(), selDate.getDate(), 12, 00));
+        var dateString = weekday[selDate.getDay()] + ", " + month[selDate.getMonth()] + " " + selDate.getDate() + ", " + selDate.getFullYear() + (IsTodayDate === true ? " at 12pm" : "");
+        $('#datetimepicker').val(dateString);
+        $("#datePickerWidthCalc").text(dateString);
+        $('#datetimepicker').css("width", ($("#datePickerWidthCalc").width() + 5) + "px");
+    }
+
+    function removeURLParameter(url, parameter) {
+        var urlparts = url.split('?');
+        if (urlparts.length >= 2) {
+
+            var prefix = encodeURIComponent(parameter) + '=';
+            var pars = urlparts[1].split(/[&;]/g);
+
+            //reverse iteration as may be destructive
+            for (var i = pars.length; i-- > 0;) {
+                //idiom for string.startsWith
+                if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                    pars.splice(i, 1);
+                }
+            }
+
+            url = urlparts[0] + '?' + pars.join('&');
+            return url;
+        } else {
+            return url;
+        }
+    }
+
+    function HideErrorMessage() {
+        $("#MainErrorMessage").text("");
+        $("#SubErrorMessage").text("");
+        $("#ShiftStatusMessage").hide();
+    }
+
+    function ShowErrorMessage(MainErrorMessage, SubErrorMessage) {
+        $("#MainErrorMessage").text(MainErrorMessage);
+        $("#SubErrorMessage").text(SubErrorMessage);
+        $("#ShiftStatusMessage").show();
+    }
+
+    function OnclickShowHideInactiveShiftDetails($this) {
+        let showInactiveStatus = $($this).is(":checked");
+        let searchWord = $($(".InputSearchShiftDetails").eq(0)).val();
+
+        ShowHideInactiveShiftDetails(showInactiveStatus);
+        SearchFilterDetails(searchWord);
+
+        HideErrorMessage();
+        let shiftDetialsCount = $("#AmionShiftDetailsTable > tbody > tr").not(":hidden").length;
+        if (shiftDetialsCount == 0) {
+            ShowErrorMessage("We didn't find any shifts for this day.", "Try selecting another day.");
+        }
+
+    }
+
+    function OnblurSearchShiftBlur($this) {
+        $(".InputSearchShiftDetails").val($($this).val());
+        if ($($this).val().length === 0 && $($this).parent().attr("id") === "DivShiftSearch") {
+            $("#DivShiftSearch").show();
+            $("#ShiftSearchIcon").hide();
+        }
+
+        if ($($this).parent().attr("id") !== "DivShiftSearch") {
+            $("#DivShiftSearch").show();
+            $("#ShiftSearchIcon").hide();
+        }
+    }
+
+    //function ShowDivShiftSearch() {
+    //    $("#DivShiftSearch").show();
+    //    $("#ShiftSearchIcon").hide();
+    //    $("#DivShiftSearch input").focus();
+
+    //}
+
+    function OnClickSelectDepartment($this, $event) {
+
+        $event.stopPropagation();
+        if ($event.target.nodeName !== "INPUT")
+            return;
+
+        $(".InputSearchShiftDetails").val("");
+
+        let allGroups = "All groups";
+        let departmentText = $($this).text().trim();
+        let isAllGroupChecked = $("#chkAllGroups").is(":checked");
+        let isAllGroups = departmentText === allGroups;
+
+        HideErrorMessage();
+        if (isAllGroups) {
+            $(".SelectDepartment input").prop("checked", isAllGroupChecked);
+            if (isAllGroups === true && isAllGroupChecked === false) {
+                ShowErrorMessage("Please select atleast one group.", "");
+                $AmionShiftDetailsTableAllBodyTr.removeClass("ShowDepartment").hide();
+
+                if (isAllGroupChecked === false)
+                    $("#SpanDepartment").html("0 groups selected");
+                return;
+            }
+        }
+
+        let selectedDepartmentArray = [];
+        $.each($(".SelectDepartment input:checked"), function (index, $li) {
+            selectedDepartmentArray.push($($li).parent().text().trim());
+        });
+
+        let allChecked = true;
+        $.each($(".SelectDepartment input"), function (index, $input) {
+            if (index === 0 || allChecked === false)
+                return;
+            allChecked = $($input).is(":checked");
+        });
+
+
+        if (allChecked === true) {
+            $AmionShiftDetailsTableAllBodyTr.addClass("ShowDepartment").show();
+            $(".SelectDepartment input").prop("checked", true);
+            $("#SpanDepartment").html(allGroups);
+            if (IsTodayDate === true) {
+                let showInactiveStatus = $(".chkInactiveStatus").eq(0).is(":checked");
+                ShowHideInactiveShiftDetails(showInactiveStatus);
+            }
+            return;
+        }
+
+        $AmionShiftDetailsTableAllBodyTr.removeClass("ShowDepartment");
+        if (isAllGroups || selectedDepartmentArray.length === 0) {
+            ShowErrorMessage("Please select atleast one group.", "");
+            $AmionShiftDetailsTableAllBodyTr.removeClass("ShowDepartment").hide();
+
+            $("#SpanDepartment").html("All groups");
+            if (isAllGroupChecked === false) {
+                $("#SpanDepartment").html("0 groups selected");
+            }
+            return;
+        }
+        else {
+            $.each($AmionShiftDetailsTableAllBodyTr, function (index, $tr) {
+                $($tr).show();
+                let shiftContent = $($tr).attr("Division");
+                if (selectedDepartmentArray.indexOf(shiftContent) > -1)
+                    $($tr).addClass("ShowDepartment").show();
+                else
+                    $($tr).hide();
+            });
+        }
+
+        if (IsTodayDate === true) {
+            let showInactiveStatus = $(".chkInactiveStatus").eq(0).is(":checked");
+            ShowHideInactiveShiftDetails(showInactiveStatus);
+        }
+
+        selectedDepartmentArray = selectedDepartmentArray.filter(function (item) {
+            return item !== allGroups
+        });
+        $("#chkAllGroups").prop("checked", allChecked);
+        if (selectedDepartmentArray.length == 0)
+            $("#SpanDepartment").html("0 groups selected");
+        else
+            if (selectedDepartmentArray.length > 1)
+                $("#SpanDepartment").html(selectedDepartmentArray.length + " groups selected");
+            else
+                if (selectedDepartmentArray.length === 1)
+                    $("#SpanDepartment").html(selectedDepartmentArray[0]);
+                else
+                    $("#SpanDepartment").html(departmentText);
+    }
+
+    function OnClickSaveEditedColumns() {
+        $($AmionShiftDetailsTableAllBodyTr).hide();
+        $("#AmionDataLoading").show();
+        let UpdatedOrderShiftColumnNames = [];
+        $.each($("#ulEditShiftColumnList li"), function (index, $li) { UpdatedOrderShiftColumnNames.push($($li).attr("ColumnName").trim()); });
+
+        let RemovedShiftColumnNames = [];
+        $.each($("#ulRemovedShiftColumns li"), function (index, $li) { RemovedShiftColumnNames.push($($li).attr("ColumnName").trim()); });
+
+        let $data = JSON.stringify({ 'OrderedColumns': UpdatedOrderShiftColumnNames, 'RemovedColumns': RemovedShiftColumnNames });
+        $.ajax({
+            url: '/Shifts/SaveEditColumns?isAdmin=' + EditColumnsJSON.IsAdmin + '&internalTeamId=' + internalTeamId + '&channelId=' + channelId + '&userId=' + userId + '&tenantId=' + tenantId,
+            type: "POST",
+            data: $data,
+            contentType: "application/json",
+            success: function (departmentResponse) {
+                window.location.reload();
+            },
+            failure: function () {
+            }
+        });
+
+        $("#divEditColumnModel").hide();
+
+    }
+
+    function onClickHideEditColumnModel() {
+        $("#divEditColumnModel").hide();
+    }
+
+    function onClickShowEditColumnModel() {
+        LoadEditColumnDetails();
+        $("#divEditColumnModel").show();
+    }
+
+    function onclickOpenChat(chaturl) {
+        microsoftTeams.executeDeepLink(chaturl);
+    }
+
+    function onclickCopyToClipboard($this, copyValue) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = copyValue;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        $($this).attr('data-original-title', "Copied").tooltip('show');
+    }
+
+    function OnmouseoutChangeTitle($this, titleValue) { $($this).attr('data-original-title', titleValue); }
+
+    function OnKeyUpSearchShiftDetails($this) {
+        let searchWord = $($this).val().toLowerCase();
+        SearchFilterDetails(searchWord);
+
+        HideErrorMessage();
+        let shiftDetialsCount = $("#AmionShiftDetailsTable > tbody > tr").not(":hidden").length;
+        if (shiftDetialsCount == 0) {
+            ShowErrorMessage("Searched shift details are not found.", "");
+        }
+    }
+
+    let _PagerUrl = "";
+    function onClickOpenChatWindow(division, staffBackupID) {
+        $.ajax({
+            url: "/shifts/GetChatWindowUrl?internalTeamId=" + internalTeamId + "&channelId=" + channelId + "&userId=" + userId + "&departmentName=" + encodeURIComponent(division) + "&staffBackupId=" + staffBackupID,
+            type: "GET",
+            success: function (PagerUrl) {
+                _PagerUrl = PagerUrl;
+                setTimeout(function () {
+                    window.open(_PagerUrl, 'AMiON Help', 'width=750, height=500');
+                }, 400);
+                //  popupwindow(PagerUrl, 'AMiON Help', 700, 400);
+            },
+            failure: function () {
+            }
+        });
+    }
+
+    function onclickOpenCalender() {
+        $("#datetimepicker").focus();
+    }
+
+
+    $(function () {
+        HideErrorMessage();
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#divEditColumnModel").hide();
+        $('.tablesorter').tablesorter();
+
+        $AmionShiftDetailsTableAllBodyTr.addClass("ShowDepartment").addClass("ShiftActive");
+
+        if (IsTodayDate === false) {
+            $(".ShowSwitchIfToday").hide();
+        }
+
+        $('#datetimepicker').appendDtpicker({
+            "amPmInTimeList": true,
+            "minuteInterval": 60,
+            "locale": "en",
+            "todayButton": false,
+            "closeButton": false,
+            "dateOnly": IsTodayDate === false,
+            "calendarMouseScroll": false,
+            "onSelect": function (handler, targetDate, isDateClick) {
+
+                var datePickerDate = handler.getDate();// Date.now;
+                var dateString = weekday[datePickerDate.getDay()] + ", " + month[datePickerDate.getMonth()] + " " + datePickerDate.getDate() + ", " + datePickerDate.getFullYear() + (IsTodayDate === true ? " at " + formatAMPM(datePickerDate) : "");
+                $('#datetimepicker').val(dateString);
+                $("#datePickerWidthCalc").text(dateString);
+                $('#datetimepicker').css("width", ($("#datePickerWidthCalc").width() + 5) + "px");
+
+                $('#datetimepicker').handleDtpicker('hide');
+
+                if (isDateClick === "date") {
+                    let currentSelectedDepartmentArray = [];
+                    if ($("#chkAllGroups").is(":checked") === false) {
+                        $.each($(".SelectDepartment input:checked"), function (index, $li) {
+                            currentSelectedDepartmentArray.push($($li).parent().text().trim());
+                        });
+                    }
+                    currentSelectedDepartmentArrayString = JSON.stringify(currentSelectedDepartmentArray);
+                    localStorage.setItem("PrevSelectedDepartment", currentSelectedDepartmentArrayString);
+                    $($AmionShiftDetailsTableAllBodyTr).hide();
+                    $("#AmionDataLoading").show();
+                    window.location.href = (window.location.href.indexOf('?') > -1 ? removeURLParameter(window.location.href, 'selDate') + '&' : '?') + "selDate=" + datePickerDate.getFullYear() + "-" + (("0" + (datePickerDate.getMonth() + 1)).slice(-2)) + "-" + (("0" + datePickerDate.getDate()).slice(-2));
+
+                }
+                else {
+                    if (datePickerDate.getFullYear() === new Date().getFullYear() && datePickerDate.getMonth() === new Date().getMonth() && datePickerDate.getDate() === new Date().getDate()) {
+                        let currentTime = parseInt(("0" + datePickerDate.getHours()).slice(-2) + "" + ("0" + datePickerDate.getMinutes()).slice(-2));
+                        HighlightInActiveShiftHelper(currentTime);
+                        $(".InputSearchShiftDetails").val("");
+                        let showInactiveStatus = $(".chkInactiveStatus").eq(0).is(":checked");
+                        ShowHideInactiveShiftDetails(showInactiveStatus);
+                        SearchFilterDetails("");
+                    }
+                }
+            }
+        });
+
+        $('#ulEditShiftColumnList').sortable({
+            accept: '*',
+            activeClass: '',
+            cancel: 'input, textarea, button, select, option',
+            connectWith: '.droppable',
+            disabled: false,
+            forcePlaceholderSize: false,
+            handle: false,
+            initialized: false,
+            items: 'li, div',
+            placeholder: 'placeholder',
+            placeholderTag: null,
+            upHandler: null,
+            receiveHandler: null
+        });
+
+
+
+        let selDate = QueryString.selDate !== undefined ? moment(QueryString.selDate, "YYYY-MM-DD").toDate() : new Date();
+        SetDatePickerDate(selDate);
+
+        let PrevSelectedDepartment = localStorage.getItem("PrevSelectedDepartment");
+        let PrevSelectedDepartmentArray = [];
+        if (PrevSelectedDepartment !== null && PrevSelectedDepartment !== undefined)
+            PrevSelectedDepartmentArray = JSON.parse(PrevSelectedDepartment);
+        let selectedDepartmentCount = 0;
+        let selectedDepartmentName = "";
+        if (PrevSelectedDepartmentArray.length > 0) {
+            $.each($(".SelectDepartment input"), function (index, $li) {
+                if (PrevSelectedDepartmentArray.indexOf($($li).parent().text().trim()) > -1) {
+                    $($li).prop("checked", true);
+                    selectedDepartmentCount++;
+                    selectedDepartmentName = $($li).parent().text().trim();
+                }
+                else
+                    $($li).prop("checked", false);
+            });
+
+            if (selectedDepartmentCount > 0) {
+                $.each($AmionShiftDetailsTableAllBodyTr, function (index, $tr) {
+                    $($tr).show();
+                    let shiftContent = $($tr).attr("Division");
+                    if (PrevSelectedDepartmentArray.indexOf(shiftContent) > -1)
+                        $($tr).addClass("ShowDepartment").show();
+                    else
+                        $($tr).removeClass("ShowDepartment").hide();
+                });
+
+                if (selectedDepartmentCount === 1)
+                    $("#SpanDepartment").html(selectedDepartmentName);
+                else
+                    $("#SpanDepartment").html(selectedDepartmentCount + " groups selected");
+            }
+            if (selectedDepartmentCount == 0)
+                $(".SelectDepartment input").prop("checked", true);
+        }
+
+        if (PrevSelectedDepartmentArray.length === 0)
+            $(".SelectDepartment input").prop("checked", true);
+
+        if (IsTodayDate === true) {
+            HighlightInActiveShiftHelper(1200);
+            let showInactiveStatus = $(".chkInactiveStatus").eq(0).is(":checked");
+            ShowHideInactiveShiftDetails(showInactiveStatus);
+        }
+
+        let shiftDetialsCount = $("#AmionShiftDetailsTable > tbody > tr").not(":hidden").length;
+        if (shiftDetialsCount == 0) {
+            ShowErrorMessage("We didn't find any shifts for this day", "Try selecting another day.");
+        }
+
+        setInterval(function () {
+            try {
+                if (IsTodayDate === true) {
+                    let height = $($(".datepicker_calendar")[0]).height();
+                    if (height > -1)
+                        $(".datepicker_timelist").css("height", height);
+                }
+                else {
+                    $(".datepicker_header").eq(0).css("width", $(".datepicker_calendar").eq(0).width());
+                }
+            } catch (e) { }
+        }, 100);
+
+        setInterval(function () {
+            let MainRightDiv = $("#MainRightDiv").width();
+            let MainLeftDiv = $("#MainLeftDiv").width();
+            let MainNavBar = $("#MainNavBar").width();
+            if (MainNavBar < MainLeftDiv + MainRightDiv + ($("#DivShiftSearch").is(":hidden") ? DivShiftSearch : 0) + 35) {
+                $("#ChildMainDiv").show();
+                $("#MainRightDiv").hide();
+            }
+            else {
+                $("#ChildMainDiv").hide();
+                $("#MainRightDiv").show();
+            }
+            $("#datePickerWidthCalc").text($('#datetimepicker').val());
+            $('#datetimepicker').css("width", ($("#datePickerWidthCalc").width() + 5) + "px");
+        }, 200);
+    });
+</script>

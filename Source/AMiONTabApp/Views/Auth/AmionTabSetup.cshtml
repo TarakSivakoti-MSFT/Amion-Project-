@@ -1,0 +1,259 @@
+﻿<html>
+<head>
+
+    <style>
+
+        .* {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .form_label {
+            height: 16px;
+            width: 376.92px;
+            color: rgba(37,36,36,0.75);
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 12px;
+            line-height: 16px;
+            display: block;
+        }
+
+        .form_input {
+            height: 32px;
+            width: 490px;
+            background-color: rgba(37,36,36,0.05);
+            padding-left: 12px;
+            color: #252424;
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            border-style: none;
+            border-radius: 2px;
+        }
+
+        .form_group {
+            margin-bottom: 24px;
+        }
+
+        form {
+            position: relative;
+            top: 7px;
+            left: 7px;
+        }
+
+        .info_sign {
+            height: 16px;
+            width: 16px;
+            color: #484644;
+            font-family: "Teams Assets";
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 16px;
+            margin-left: 8px;
+        }
+
+        .form_input_inline_with_button {
+            width: 365px;
+            display: inline-block;
+        }
+
+        .browse_button {
+            height: 32px;
+            width: 114px;
+            border: 1px solid #E2E2F6;
+            border-radius: 2px;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px -0.75px rgba(0,0,0,0.1);
+            margin-left: 9px;
+            vertical-align: bottom;
+            color: #6264A7;
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 28px;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .download_link {
+            height: 20px;
+            width: 111px;
+            color: #6264A7;
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            text-decoration: none;
+        }
+
+        .form_group_inline_with_button {
+            margin-bottom: 9px;
+        }
+
+        .save_button {
+            height: 32px;
+            width: 99px;
+            border-radius: 2px;
+            background-color: rgba(37,36,36,0.05);
+            color: #FFFFFF;
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            top: 295px;
+            left: 390px;
+            border-style: none;
+        }
+
+        /* toggle switch button */
+        .toggle {
+            margin-bottom: 24px;
+            height: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: -12px;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 14px;
+                width: 14px;
+                left: 2px;
+                bottom: 3px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #6264A7;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px rgb(117, 170, 218);
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(22px);
+            -ms-transform: translateX(22px);
+            transform: translateX(22px);
+        }
+        /* Rounded sliders */
+
+        .slider.round {
+            border-radius: 100px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
+        .toggleSwichButtonText {
+            height: 20px;
+            width: 323px;
+            color: #252423;
+            font-family: "Segoe UI Semilight",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            vertical-align: central;
+            margin-left: 12px;
+        }
+        /* toggle switch button - end */
+
+    </style>
+</head>
+<body>
+    <form>
+        <div class="form_group">
+            <label for="login" class="form_label">Login</label>
+            <input type="text" name="" id="login" value="" class="form_input">
+        </div>
+        <!-- toggle switch button -->
+        <div class="toggle">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <span class="toggleSwichButtonText">Enable targeted messages with the on-call schedule.</span>
+            <img class="info_sign" />
+        </div>
+        <div class="form_group">
+            <label for="login" class="form_label">Select departments</label>
+            <input type="text" name="" id="login" value="" class="form_input">
+        </div>
+        <div class="form_group form_group_inline_with_button">
+            <label for="login" class="form_label">Add mapping file</label>
+            <input type="text" name="" id="login" value="" class="form_input form_input_inline_with_button">
+            <a class="browse_button" href="#">Browse</a>
+        </div>
+        <a class="download_link" href="#">Download sample</a>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha384-VC7EHu0lDzZyFfmjTPJq+DFyIn8TUGAJbEtpXquazFVr00Q/OOx//RjiZ9yU9+9m" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@Html.Raw("@")microsoft/teams-js@1.4.2/dist/MicrosoftTeams.min.js" integrity="sha384-DcoNUuQTjpW5Sw3msonn/2ojgtNvtC5fCGd5U9RUpL3g1hla1LzHz8I9YIYSXe6q" crossorigin="anonymous"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js" integrity="sha384-BIOS/65fbAsb2XiCCSTlZSTTl0ZgqkOU522dpyk5meOnN2EOQ3uH+QpqEtoAtmBn" crossorigin="anonymous"></script>
+    <script>
+
+        microsoftTeams.initialize();
+        microsoftTeams.settings.setValidityState(true);
+
+        microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+
+               microsoftTeams.authentication.authenticate({
+                url: window.location.origin + "/Auth/AmionAuthStart",
+                width: 600,
+                height: 535,
+                successCallback: function (result) {
+                    let data = localStorage.getItem(result);
+                    localStorage.removeItem(result);
+                    let tokenResult = JSON.parse(data);
+                    alert(tokenResult.accessToken);
+                    // document.cookie = "expires_in=" + tokenResult.expiresIn;
+                       document.cookie = "Auth=" + tokenResult.accessToken;
+
+                    microsoftTeams.settings.setSettings({
+                        entityId: "Amion",
+                        //contentUrl: window.location.origin + '/Shift/Index',
+                        contentUrl: window.location.origin + '/Auth/Index',
+                        suggestedDisplayName: "Amion"
+
+                    });
+
+                      saveEvent.notifySuccess();
+                  
+                },
+                failureCallback: function (reason) {
+                    alert(reason);
+                }
+            });
+
+        });
+
+    </script>
+</body>
+</html>
