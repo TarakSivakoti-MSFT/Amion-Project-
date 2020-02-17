@@ -1,0 +1,56 @@
+﻿<html>
+<head>
+    <title>Teams Context Detail</title>
+</head>
+<body>
+
+    <p>
+        <div>
+            <div><b>entityId :</b> <span id="entityId" /></div>
+            <div><b>subEntityId :</b> <span id="subEntityId" /></div>
+            <div><b>loginHint :</b> <span id="loginHint" /></div>
+            <div><b>userPrincipalName :</b> <span id="userPrincipalName" /></div>
+            <div><b>userObjectId :</b> <span id="userObjectId" /></div>
+            <div><b>theme :</b> <span id="theme" /></div>
+            <div><b>groupId :</b> <span id="groupId" /></div>
+            <div><b>teamId :</b> <span id="teamId" /></div>
+            <div><b>locale :</b> <span id="locale" /></div>
+            <div><b>channelId :</b> <span id="channelId" /></div>
+            <div><b>channelName :</b> <span id="channelName" /></div>
+            <div><b>teamName :</b> <span id="teamName" /></div>
+            <div><b>userPrincipalName :</b> <span id="userPrincipalName" /></div>
+            <div><b>userLicenseType :</b> <span id="userLicenseType" /></div>
+        </div>
+    </p>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha384-VC7EHu0lDzZyFfmjTPJq+DFyIn8TUGAJbEtpXquazFVr00Q/OOx//RjiZ9yU9+9m" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@Html.Raw("@")microsoft/teams-js@1.4.2/dist/MicrosoftTeams.min.js" integrity="sha384-DcoNUuQTjpW5Sw3msonn/2ojgtNvtC5fCGd5U9RUpL3g1hla1LzHz8I9YIYSXe6q" crossorigin="anonymous"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js" integrity="sha384-BIOS/65fbAsb2XiCCSTlZSTTl0ZgqkOU522dpyk5meOnN2EOQ3uH+QpqEtoAtmBn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        microsoftTeams.initialize();
+        microsoftTeams.getContext(function (context) {
+
+            $("#entityId").text(context.entityId);
+            $("#subEntityId").text(context.subEntityId);
+            $("#loginHint").text(context.loginHint);
+            $("#userPrincipalName").text(context.userPrincipalName);
+            $("#userObjectId").text(context.userObjectId);
+            $("#theme").text(context.theme);
+            $("#channelId").text(context.channelId);
+            $("#channelName").text(context.channelName);
+            $("#teamId").text(context.teamId);
+            $("#locale").text(context.locale);
+            $("#teamName").text(context.teamName);
+            $("#userPrincipalName").text(context.userPrincipalName);
+            $("#userLicenseType").text(context.userLicenseType);
+
+            let TeamContextDetails = JSON.stringify({ TeamId: context.teamId, ChannelId: context.channelId, UserId: context.userObjectId, tenantId: context.tid });
+            document.cookie = "TeamContextDetails=" + TeamContextDetails;
+
+        });
+
+
+    </script>
+</body>
+</html>

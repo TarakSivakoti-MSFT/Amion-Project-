@@ -1,0 +1,44 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.5",
+    "version": "1.0.0",
+    "id": "f866907c-e504-4f9a-b085-854f8b07ce30",
+    "packageName": "com.amion.tabapp",
+    "developer": {
+        "name": "AMiON",
+        "websiteUrl": "https://www.amion.com",
+        "privacyUrl": "https://www.amion.com/cgi-bin/ocs?Page=Help:169",
+        "termsOfUseUrl": "https://www.amion.com/cgi-bin/ocs?Page=Help:20"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "AMiON",
+        "full": ""
+    },
+  "description": {
+    "short": "Bring your AMiON on-call schedules in Teams.",
+    "full": "AMiON helps groups, hospitals and healthcare systems create and manage accurate, fair provider schedules. Microsoft Teams is a \tchat and collaboration app that allows easy, secure communications within your group or department. Amion and Microsoft have partnered to create the Amion Tab App for Teams, a Team-based tab app that enables users to\n\n[#LI] View AMiON on-call scheduling data directly in Teams [/#LI]\n[#LI] Message an on-call resource with a Teams message [/#LI]\n[#LI] Send a text page [/#LI]\n\nAMiON is enabled or disabled for a healthcare organization the same as any other app (see https://review.docs.microsoft.com/en-us/MicrosoftTeams/teams-app-setup-policies for specifics). Only a Team owner can add the AMiON App to a Channel within a Team. \n \n1.\tChose the Team and Channel in which you want to add the AMiON Tab App and click the + icon to add a new Tab \n2.\tSearch for the AMiON Tab App then click it to add it to your Team\n3.\tType your AMiON login and click Submit \n4.\tChose which columns are visible to your Team or drag the columns to change the order and click Save \n5.\tYou should see a new tab called AMiON in your Channel \n \nNote: In order to send a Teams chat message to an on-call resource from the AMiON Tab App, the user in AMiON must have their corresponding Azure Active Directory email populated in AMiON. \n \nIn the AMiON Tab App, you can view on-call data in a variety of ways by\n[#LI] Filtering by group(s) using the drop-down menu [/#LI]\n[#LI] Using the date picker to select another day or time [/#LI]\n[#LI] Toggling the view of off-duty on-call shifts for the current day to view or hide off-duty assignments [/#LI]\n \nIn the AMiON Tab App, you can interact with the data by either\n[#LI] Sending a Teams chat to an on-call resource (requires that emails corresponding to your Azure Active Directory Account be setup in AMiON) [/#LI]\n[#LI] Sending a text page to an on-call resource [/#LI]\n\nNew users, to sign up for a single group AMiON account, please visit the New Customer Setup page, https://www.amion.com/cgi-bin/ocs?NewCust=1. To setup an enterprise or hospital-wide accounts, contact your IT admin. For more information, visit the AMiON Order Page, https://www.amion.com/Order.shtml. An AMiON Login information/Login key associated to A Clinical group is required to use the app."
+  },
+    "accentColor": "#A2CF6D",
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://amionteamsintegration.azurewebsites.net/amion/index",
+            "canUpdateConfiguration": true,
+            "scopes": [
+                "team"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "amionteamsintegration.azurewebsites.net",
+        "*.amion.com",
+        "*.amionteamsintegration.azurewebsites.net"
+    ]
+}

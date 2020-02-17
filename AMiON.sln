@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMiONTabApp", "Source\AMiONTabApp\AMiONTabApp.csproj", "{75401CF3-4240-4E4F-9052-55A1DAB539E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMiON.Helper", "Source\AMiONHelper\AMiON.Helper.csproj", "{C146423D-ECB3-4A77-A095-E66BA1B5246D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Manifest", "Manifest", "{2A27D9F1-33E0-4871-90D0-B28802A874A0}"
+	ProjectSection(SolutionItems) = preProject
+		Manifest\color.png = Manifest\color.png
+		Manifest\manifest.json = Manifest\manifest.json
+		Manifest\outline.png = Manifest\outline.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75401CF3-4240-4E4F-9052-55A1DAB539E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75401CF3-4240-4E4F-9052-55A1DAB539E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75401CF3-4240-4E4F-9052-55A1DAB539E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75401CF3-4240-4E4F-9052-55A1DAB539E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C146423D-ECB3-4A77-A095-E66BA1B5246D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C146423D-ECB3-4A77-A095-E66BA1B5246D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C146423D-ECB3-4A77-A095-E66BA1B5246D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C146423D-ECB3-4A77-A095-E66BA1B5246D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08A49A28-268E-4DD8-99C0-FC113A447F8D}
+	EndGlobalSection
+EndGlobal

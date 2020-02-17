@@ -1,0 +1,391 @@
+﻿<div id="divAmionImport">
+    <div class="ui container">
+        <div class="body-content body-top" id="wrapper">
+            <div class="ui middle aligned center aligned grid">
+                <div class="column">
+                    <form class="ui large form">
+                        <div class="ui stacked">
+                            <div class="field">
+                                <label for="login" class="lblAmion" style="text-align:left">AMiON Login</label>
+                                <div class="ui icon input">
+                                    <input type="text" tabindex="0" name="login" class="clsInputBckgrnd" placeholder="Type your login info" id="amionLoginData" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="clearInput()" onkeyup="checkInput()" onfocusin="onInputFocus()" onfocusout="onInputFocusOut()">
+                                    <i id="idCheckIconForAmionInput" class="circleCheckIcon"></i>
+                                </div>
+                                <div class="field-validation-error alignLeft" id="errorContainer">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button class="ui button" tabindex="1" id="btnAmionLogin" onclick="checkAmionAuthentication(event)">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="divEditColumns" style="display:none">
+            @{
+                Html.RenderPartial("_EditGridColumns");
+            }
+        </div>
+        <div class="ui form">
+            @if (bool.Parse(System.Configuration.ConfigurationManager.AppSettings["ImportMode"]))
+            {
+
+                <div class="my-container">
+                    <div class="row completeWidth">
+                        <div class="ui toggle checkbox alignLeft" style="width:98%">
+                            <input type="checkbox" name="chkDepartments" id="idDepartment">
+                            <label for="chkDepartments" id="lblChkDepartments">
+                                Enable targeted messages with the on-call schedule.
+                            </label>
+                        </div>
+                        <div class="alignRight" style="width:2%">
+                            <i class="info circle icon"></i>
+                        </div>
+                        <div class="clear:both"></div>
+                    </div>
+                </div>
+                <div id="helperContainer">
+                    <div class="my-container">
+                        <div class="row">
+                            <div class="field">
+                                <label class="lblAmion">Select departments</label>
+                                <div class="ui fluid search selection dropdown clearable multiple clsInputBckgrnd" id="selectDepartment">
+                                    <input type="hidden" name="departments" id="departmentInput" />
+                                    <i class="dropdown icon"></i>
+                                    <i class="remove icon" id="removeDepartmentDropdown" data-content="Clear all selected departments" data-position="left center"></i>
+                                    <span class="default text">Select Department</span>
+                                    <div class="menu" tabindex="0" id="multipleSelDepartments">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-container">
+                        <div class="row completeWidth">
+                            <div class="field">
+                                <label class="lblAmion">Add mapping file</label>
+                                <div class="fields">
+                                    <div class="field alignLeft" style="width:85%">
+                                        <input type="text" readonly name="mappingFilePath" class="clsInputBckgrnd" id="mappingFilePath" style="background:#e0e1e2">
+                                    </div>
+                                    <div class="ui field primary basic blue button completeWidth" id="divUpload">
+                                        Browse
+                                        <input type="file" name="uploadedFile" style="display:none" id="uploadMappingFileInput" />
+                                    </div>
+                                </div>
+                            </div>
+                            <a id="downloadMappingFileInput" href="~/Download/Mapping.xlsx" style="cursor:pointer;text-decoration:none">Download sample</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-container">
+                    <div id="idMSLoginContainer">
+                        <img src="~/Content/images/MS-logo.png" style="padding-right:12px" />
+                        Sign In to Import Schedule
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://unpkg.com/@Html.Raw("@")microsoft/teams-js@1.4.2/dist/MicrosoftTeams.min.js" integrity="sha384-DcoNUuQTjpW5Sw3msonn/2ojgtNvtC5fCGd5U9RUpL3g1hla1LzHz8I9YIYSXe6q" crossorigin="anonymous"></script>
+    <script>
+    microsoftTeams.initialize();
+    microsoftTeams.settings.setValidityState(false);
+        let internalTeamId = "";
+        let channelId = "";
+        let userId = "";
+        let tenantId = "";
+        let filePath = "";
+        var shouldStartImport = "@(System.Configuration.ConfigurationManager.AppSettings["ImportMode"].ToString())";
+        var tabDisplayName = "@(System.Configuration.ConfigurationManager.AppSettings["TabDisplayName"] ?? "AMiON")";
+        microsoftTeams.getContext(function (context) {
+            internalTeamId = context.teamId;
+            channelId = context.channelId;
+            userId = context.userObjectId;
+            tenantId = context.tid;
+        });
+
+        function checkAmionAuthentication(event) {
+            event.preventDefault();
+            $("#btnAmionLogin").addClass("loading");
+            let objImportModel = {}
+            objImportModel.AmionLogin = $('#amionLoginData').val();
+            $.ajax({
+                url: window.location.origin + '/CheckAmion',
+                type: "POST",
+                data: JSON.stringify(objImportModel),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.SuccessResponse) {
+                        //$("#btnAmionLogin").removeClass("btn-primary loading");
+                        //$('#idCheckIconForAmionInput').show();
+                        //$("#btnAmionLogin").attr("disabled", "disabled").button('refresh');
+                        $('#wrapper').hide();
+                        $('#divEditColumns').show();
+
+                        microsoftTeams.settings.setValidityState(true);
+                    }
+                    else {
+                        $("#btnAmionLogin").removeClass("loading");
+                        $('#errorContainer').html('We didn\'t find an AMiON subscription associated with that login.');
+                        $("#btnAmionLogin").removeAttr("disabled").button('refresh');
+                    }
+                },
+                failure: function () {
+                    $("#btnAmionLogin").removeClass("loading");
+                    $('#errorContainer').html('Something went wrong!!! Please try again.');
+                    $("#btnAmionLogin").removeAttr("disabled").button('refresh');
+                }
+            });
+        }
+
+        function clearInput() {
+            $('#errorContainer').html('');
+            $('#idCheckIconForAmionInput').hide();
+            microsoftTeams.settings.setValidityState(false);
+        }
+
+        function checkInput() {
+            var amionValue = $('#amionLoginData').val();
+            if (amionValue != undefined && amionValue != "") {
+                $("#btnAmionLogin").addClass("btn-primary");
+                $("#btnAmionLogin").removeAttr("disabled").button('refresh');
+            }
+            else {
+                if (amionValue == "") {
+                    $("#btnAmionLogin").removeClass("btn-primary");
+                    $("#btnAmionLogin").attr("disabled", "disabled").button('refresh');
+                    microsoftTeams.settings.setValidityState(false);
+                }
+            }
+        }
+
+        function onInputFocus() {
+            $('#amionLoginData').addClass('txtInputBottonBorder');
+        }
+        function onInputFocusOut() {
+            var amionValue = $('#amionLoginData').val();
+            if (amionValue == undefined || amionValue == "") {
+                $('#amionLoginData').removeClass('txtInputBottonBorder');
+            }
+        }
+        function login(url) {
+            microsoftTeams.authentication.authenticate({
+                url: url,
+                width: 600,
+                height: 535,
+                successCallback: function (result) {
+
+                    let data = localStorage.getItem(result);
+                    localStorage.removeItem(result);
+                    let tokenResult = JSON.parse(data);
+                    localStorage.setItem('cookie', tokenResult.accessToken);
+                    $("#idMSLoginContainer").html('Already logged in');
+
+                },
+                failureCallback: function (reason) {
+                    alert(reason);
+                }
+            });
+        }
+        var formData = null;
+        var uniqueDepartments = [];
+    $(document).ready(function () {
+            $('#ulEditColumnNames').sortable({
+                accept: '*',
+                activeClass: '',
+                cancel: 'input, textarea, button, select, option',
+                connectWith: '.droppable',
+                disabled: false,
+                forcePlaceholderSize: false,
+                handle: false,
+                initialized: false,
+                items: 'li, div',
+                placeholder: 'placeholder',
+                placeholderTag: null,
+                upHandler: null,
+                receiveHandler: null
+            });
+            $('#idCheckIconForAmionInput').hide();
+            $("#btnAmionLogin").attr("disabled", "disabled").button('refresh');
+            $('#selectDepartment').dropdown({ clearable: true });
+            $('#removeDepartmentDropdown').on('click', function (e) {
+                $(this).parent('.dropdown').dropdown('clear');
+            });
+
+
+            $('#selectDepartment').dropdown({
+                on: 'click',
+                onLabelCreate: function (value, text) {
+                    if (value.indexOf("&") >= 0) {
+                        value = value.replace('&', '&amp;');
+                    }
+                    var $label = $("<a class=\"ui label\" style=\"display: inline-block !important;\" data-value='" + value + "'>").html(text.substr(0, text.indexOf('<')) + '<i class=\"delete icon\"/>');
+                    $label.text = text.substr(0, text.indexOf('<')).trim();
+                    return $label;
+                }
+            });
+
+            $('.message .close').on('click', function () {
+                $(this).closest('.message').transition('fade');
+            });
+            $('#helperContainer').hide();
+            $('#idDepartment').click(function () {
+                if ($(this).prop("checked") == true) {
+                    //var url = window.location.origin + '/AmionData/' + $('#amionLoginData').val();
+                    //displayDepartmentData(url);
+                }
+                else if ($(this).prop("checked") == false) {
+                    $('#helperContainer').hide();
+                }
+            });
+
+            $('#uploadMappingFileInput').change(function (e) {
+                e.preventDefault();
+                var url = window.location.origin + '/SaveFile/?internalTeamId=' + internalTeamId + '&channelId=' + channelId + '&userId=' + userId + '&tenantId=' + tenantId;
+
+                var formdata = new FormData(); //FormData object
+                var fileInput = $('#uploadMappingFileInput').get(0);
+
+                formdata.append(fileInput.files[0].name, fileInput.files[0]);
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formdata,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        if (data.success) {
+                            $('#mappingFilePath').val(fileInput.files[0].name);
+                            filePath = data.filePath;
+                        }
+                        else {
+                            //Show error on page
+                        }
+                    },
+                    error: function (xhr, error, status) {
+                        console.log(error, status);
+                    }
+                });
+            });
+            $('#divUpload').on('click', function () {
+                $('#uploadMappingFileInput')[0].click();
+            });
+
+            $('#idMSLoginContainer').click(function () {
+                login(window.location.origin + "/Auth/AmionAuthStart");
+            });
+        });
+
+        microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+            var objShiftCreationUserInput = {};
+            objShiftCreationUserInput.AmionLogin = $.trim($('#amionLoginData').val());
+            if (shouldStartImport == "true") {
+                //var fileInput = $('#uploadMappingFileInput').get(0);
+                objShiftCreationUserInput.AccessToken = localStorage.getItem('cookie');
+                objShiftCreationUserInput.FilePath = filePath;
+                objShiftCreationUserInput.SelectedDepartments = [];
+                if ($('#selectDepartment').dropdown('get value') !== "") {
+                    $($('#selectDepartment').dropdown('get value').split(',')).
+                        each(function () {
+                            if (this.indexOf("&amp;") >= 0) {
+                                this.replace("&amp;", '&');
+                            }
+                            objShiftCreationUserInput.SelectedDepartments.push
+                                ($.trim(this.substr(0, this.indexOf('<'))))
+                        });
+                }
+            }
+            $("#divEditColumns").hide();
+            $("#AmionDataLoading").show();
+            objShiftCreationUserInput.SelectedColumnNames = [];
+            $.each($("#ulEditColumnNames li"), function (index, $li) { objShiftCreationUserInput.SelectedColumnNames.push($($li).attr("ColumnName").trim()); });
+            objShiftCreationUserInput.RemovedColumnNames = [];
+            $.each($("#ulRemovedColumnNames li"), function (index, $li) { objShiftCreationUserInput.RemovedColumnNames.push($($li).attr("ColumnName").trim()); });
+            let postRequestUrl = window.location.origin + '/CreateShifts?internalTeamId=' + internalTeamId + '&channelId=' + channelId + '&userId=' + userId + '&tenantId=' + tenantId;
+            postRequest(postRequestUrl, objShiftCreationUserInput, saveEvent, handleSuccess, handleFailure);
+            microsoftTeams.settings.setSettings({
+                entityId: "Amion",
+                contentUrl: window.location.origin + '/Shifts/Index?internalTeamId=' + internalTeamId + '&channelId={channelId}&userID={userObjectId}',
+                suggestedDisplayName: tabDisplayName
+            });
+        });
+
+        function displayDepartmentData(url) {
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (departmentResponse) {
+                    //Added check to handle the disable scenario of next button in Select Department modal pop up
+                    if (departmentResponse.length > 0) {
+                        if (shouldStartImport == "true") {
+                            $("#multipleSelDepartments").empty();
+                            var multipleSelDepartments = $("#multipleSelDepartments");
+                            $(departmentResponse).each(function () {
+                                var div = $("<div />");
+                                div.addClass("item");
+                                div.html(this.DepartmentName + ' <br/><p>Shifts ' + this.ShiftsCount + '</p>');
+                                div.val(this.DepartmentName);
+                                //Add the Option element to DropDownList.
+                                multipleSelDepartments.append(div);
+                            });
+                            $('#helperContainer').show();
+                        }
+                    }
+                    else {
+                        $('#errorContainer').html('We didn\'t find an AMiON subscription associated with that login.');
+                    }
+                },
+                failure: function () {
+                    $('#errorContainer').html('Something went wrong!!! Please try again.');
+                }
+            });
+        }
+
+        function resetFields(form) {
+            $(':input', form).each(function () {
+                var type = this.type;
+                var tag = this.tagName.toLowerCase(); // normalize case
+                // to reset the value attr of text inputs,
+                // password inputs, fileUpload and textareas
+                if (type == 'text')
+                    this.value = "";
+            });
+            $('.field .error').text('');
+        }
+
+       function postRequest(url, requestData,saveEvent,handleSuccess, handleFailure) {
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: JSON.stringify(requestData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (responseData) {
+                    $("#AmionDataLoading").show();
+                    saveEvent.notifySuccess();
+                    handleSuccess(responseData);
+                },
+                failure: function (responseData) {
+                    $("#divEditColumns").show();
+                    handleFailure(responseData);
+                }
+            });
+        }
+
+        function handleSuccess(data) {
+            
+        }
+        function handleFailure(data) {
+            
+        }
+    </script>
+}
